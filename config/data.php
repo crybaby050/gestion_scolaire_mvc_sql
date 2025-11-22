@@ -2,9 +2,9 @@
 function getPDO(){
     try{
         return new PDO(
-            "mysql:host=localhost;dbname=ecole;charset=utf8",
+            "mysql:host=127.0.0.1;dbname=ecole;charset=utf8;port=3307",
             "root",
-            "",
+            "seydinathiam05",
             [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC

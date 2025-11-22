@@ -16,7 +16,7 @@ function loginUser($mail, $mdp)
     }
     if (empty($errors)) {
         $user = verifUser($mail);
-        if ($user && $mdp === $user['password']) {
+        if ($user && $mdp === $user['mdp']) {
             $_SESSION['userConnect'] = $user;
             redirect('?page=dashboard');
         } else {

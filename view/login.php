@@ -9,15 +9,15 @@
                 <label for="">Mail</label>
                 <input type="text" placeholder="Ex: monmail@gmail.com" name="mail">
                 <i class="fa-solid fa-envelope"></i>
-                <p><?= $error['mail'] ?? '' ?></p>
+                <p><?= $errors['mail'] ?? '' ?></p>
             </div>
             <div>
                 <label for="">Password</label>
                 <input type="password" placeholder="mon mot de passe" name="mdp">
                 <i class="fa-solid fa-eye"></i>
-                <p><?= $error['mdp'] ?? '' ?></p>
+                <p><?= $errors['mdp'] ?? '' ?></p>
             </div>
-            <?= $error['verif'] ?? '' ?>
+            <?= $errors['verif'] ?? '' ?>
             <button type="submit" name="log" >Se Connecter</button>
         </form>
     </div>
