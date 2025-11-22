@@ -2,7 +2,7 @@
 function getPDO(){
     try{
         return new PDO(
-            "mysql:host=localhost;dbname=exo;charset=utf8",
+            "mysql:host=localhost;dbname=ecole;charset=utf8",
             "root",
             "",
             [

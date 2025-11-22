@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../other/init.php';
-function isConnected(){
-    if(isset($_POST['log'])){
-        $mail = sanitize($_POST['mail']);
-    }
+$errors = [];
+if (isset($_POST['log'])) {
+    $errors = loginUser($_POST['mail'], $_POST['mdp']);
 }
