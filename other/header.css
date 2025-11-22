@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* La partie formulaire */
+.logContain{
+    border: 1px solid black;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.logimg{
+    border: 1px solid black;
+    height: 100%;
+    width: 55%;
+    background-color: blue;
+}
+.logform{
+    border: 1px solid black;
+    height: 100%;
+    width: 45%;
+    background-color: green;
+}
