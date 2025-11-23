@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* La partie formulaire */
+.logContain{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.logimg{
+    height: 100%;
+    width: 55%;
+    background-image: url('/image/logineimage.png');
+    background-size: cover;
+    background-position: center;
+}
+.logform{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logform form{
+    /* border: 1px solid black; */
+    height: 65%;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.h1{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.h1 img{
+    width: 26%;
+    height: 100%;
+    border-radius: 300px;
+    margin-top: 5%;
+}
+
+.logform form div {
+    width: 90%;
+    height: 20%;
+    /* border: 1px solid black; */
+    /* margin-bottom: 20px; */
+    text-align: start;
+    position: relative; /* IMPORTANT */
+}
+
+.logform form div label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.logform form div input {
+    width: 100%;
+    height: 60%;
+    /* border: none; */
+    padding: 10px 40px 10px 10px; 
+    font-size: 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: rgba(235, 233, 233, 0.371);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(159, 159, 159, 0.538);
+    font-size: 90%;
+}
+.logform form input:hover{
+    border:2px solid #007bff;
+}
+.logform form div i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    margin-top: -1%;
+    pointer-events: none;
+    font-size: 18px;
+    color: #383838;
+}
+.logform form div p {
+    margin-top: 5px;
+    color: red;
+    width: 100%;
+}
+.logform form button {
+    border: none;
+    height: 10%;
+    width: 50%;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 #0056b3;
+    transition: 0.1s;
+}
+.logform form button:active {
+    box-shadow: 0 2px 0 #0056b3;
+    transform: translateY(2px);
+}
+
+/* Css du side bar et du header */
+#toggle {
+    display: none;
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh; /* TRÈS IMPORTANT : prend toute la hauteur */
+    background: #1e1e1e;
+    padding-top: 60px; /* espace sous le header */
+    transition: 0.3s;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Header dans la sidebar */
+.sidebar-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #1e1e1e;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* padding-left: 20px; */
+    margin: 0;
+}
+.sidebar-header h2{
+    width: 100%;
+    text-align: center;
+}
+.sidebar-header div{
+    height: 60%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-header div img{
+    height: 100%;
+    width: 90%;
+    border-radius: 50px;
+}
+/* ---- HEADER ---- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 220px; /* commence à droite du sidebar */
+    height: 60px;
+    background: #007bff;
+    width: calc(100% - 220px);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    transition: 0.3s;
+    z-index: 9;
+}
+
+.menu-btn {
+    font-size: 26px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* ---- LINKS ---- */
+.sidebar ul {
+    margin-top: 60px;
+    list-style: none;
+}
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: block;
+}
+
+/* ---- CONTENT ---- */
+.content {
+    margin-left: 220px;
+    padding: 30px;
+    margin-top: 60px;
+    transition: 0.3s;
+}
+
+/* ---- MODE RÉTRACTÉ ---- */
+#toggle:checked ~ .sidebar {
+    width: 70px;
+}
+
+/* Header se décale aussi */
+#toggle:checked ~ .header {
+    left: 70px;
+    width: calc(100% - 70px);
+}
+
+/* Content se décale */
+#toggle:checked ~ .content {
+    margin-left: 70px;
+}
+
+/* Cacher texte du sidebar */
+#toggle:checked ~ .sidebar ul li a {
+    text-indent: -9999px;
+}
+#toggle:checked ~ .sidebar ul li a::before {
+    content: "•";
+    text-indent: 0;
+    margin-left: 25px;
+    color: white;
+}
+
+/* Cacher titre du sidebar */
+#toggle:checked ~ .sidebar .sidebar-header h2 {
+    opacity: 0;
+}
