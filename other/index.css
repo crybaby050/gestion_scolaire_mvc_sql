@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background: #F6F9FC;
+}
 /* La partie formulaire */
 .logContain{
     height: 100vh;
@@ -127,10 +130,12 @@
     left: 0;
     width: 220px;
     height: 100vh; /* TRÈS IMPORTANT : prend toute la hauteur */
-    background: #1e1e1e;
+    /* background: #a6a5a50b; */
+    background: #f6f6f6;
     padding-top: 60px; /* espace sous le header */
     transition: 0.3s;
     overflow: hidden;
+    color: black;
     z-index: 10;
 }
 
@@ -140,8 +145,7 @@
     top: 0;
     width: 100%;
     height: 100px;
-    background: #1e1e1e;
-    color: white;
+    color: black;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -171,20 +175,46 @@
     top: 0;
     left: 220px; /* commence à droite du sidebar */
     height: 60px;
-    background: #007bff;
+    background: #FFFFFF;
     width: calc(100% - 220px);
-    color: white;
+    color: #2F3A4A;
     display: flex;
     align-items: center;
     padding-left: 20px;
     transition: 0.3s;
     z-index: 9;
 }
-
+.header-search{
+    height: 100%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profil{
+    /* border: 1px solid #DDE5EE; */
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.profil button{
+    height: 80%;
+    width: 12%;
+    border: none;
+    border-radius: 50px;
+}
+.profil button img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+}
 .menu-btn {
     font-size: 26px;
     margin-right: 20px;
     cursor: pointer;
+    /* border: 1px solid #DDE5EE; */
 }
 
 /* ---- LINKS ---- */
@@ -196,18 +226,43 @@
     margin: 15px 0;
 }
 .sidebar ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 12px 20px;
+    position: relative;
     display: block;
+    transition: background 0.25s ease, padding-left 0.25s ease;
 }
+.sidebar ul li a:hover {
+    background: #EAF3FF;
+    color: #007bff;
+    padding-left: 26px;
+}
+/* .sidebar ul li a.active {
+    background: #EAF3FF;
+    border-left: 4px solid #007bff;
+    color: #007bff;
+    font-weight: 600;
+} */
 
+.sidebar ul li a:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #007bff;
+    border-radius: 0 4px 4px 0;
+}
 /* ---- CONTENT ---- */
 .content {
     margin-left: 220px;
     padding: 30px;
     margin-top: 60px;
+    background: #F6F9FC;
     transition: 0.3s;
+    border: 1px solid blue;
 }
 
 /* ---- MODE RÉTRACTÉ ---- */
@@ -241,3 +296,122 @@
 #toggle:checked ~ .sidebar .sidebar-header h2 {
     opacity: 0;
 }
+#toggle:checked ~ .sidebar .sidebar-header img {
+    height: 70%;
+    width: 200%;
+    padding-top: 5%;
+}
+/* configuration du css du dashboard */
+.card {
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-between;
+}
+
+/* ----- CARDS MODERNES ----- */
+.l-card {
+    position: relative;
+    border-radius: 14px;
+    background: #ffffff;
+    height: 25vh;
+    width: 23%;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: cardFadeIn 1s ease forwards;
+
+    padding: 20px;
+    overflow: hidden;
+}
+
+.l-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.12);
+    border-color: #d8e6ff;
+}
+
+/* ----- BULLE PASTEL DERRIÈRE ----- */
+.l-card::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0.45;
+}
+
+/* ----- CERCLE AVEC ICÔNE ----- */
+.icon-circle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 13px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+}
+
+/* ======== COULEURS POUR CHAQUE CARD ======== */
+
+/* BLEU */
+.color-blue::before { background: #e9f4ff; }
+.color-blue .icon-circle { background: #4facfe; }
+
+/* VERT */
+.color-green::before { background: #eafff3; }
+.color-green .icon-circle { background: #4ade80; }
+
+/* ORANGE */
+.color-orange::before { background: #fff3e6; }
+.color-orange .icon-circle { background: #fb923c; }
+
+/* ROUGE */
+.color-red::before { background: #ffecec; }
+.color-red .icon-circle { background: #ef4444; }
+
+/* ----- ANIMATION D'APPARITION ----- */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* ----- HOVER AVEC COULEUR PERSONNALISÉE ----- */
+
+/* BLEU */
+.color-blue:hover {
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.35);
+}
+
+/* VERT */
+.color-green:hover {
+    box-shadow: 0 8px 20px rgba(74, 222, 128, 0.35);
+}
+
+/* ORANGE */
+.color-orange:hover {
+    box-shadow: 0 8px 20px rgba(251, 146, 60, 0.35);
+}
+
+/* ROUGE */
+.color-red:hover {
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+

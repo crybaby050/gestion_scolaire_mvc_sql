@@ -1,7 +1,19 @@
+<?php
+require_once __DIR__ . '/../model/helperModel.php';
+$user = verifUser('benthiam@gmail.com');
+?>
 <input type="checkbox" id="toggle">
 <header class="header">
     <label for="toggle" class="menu-btn">☰</label>
-    <h2>Mon Application PHP</h2>
+    <div class="header-search">
+        <h2>INSITIUE SUPERIEUR D'INFORMATIQUE</h2>
+        <div class="profil">
+            <p>Bonjour <strong><?= $nameUser ?></strong></p>
+            <button>
+                <img src="/../image/school logo.jpg" alt="">
+            </button>
+        </div>
+    </div>
 </header>
 
 <aside class="sidebar">
@@ -19,6 +31,3 @@
     </ul>
 </aside>
 
-<div class="content">
-    <h1>Contenu</h1>
-</div>
