@@ -1,7 +1,7 @@
 <!-- <div class="content"> -->
     <div class="add-container">
     <h2>Ajouter un étudiant</h2>
-    <form class="form-card">
+    <form class="form-card" method="post">
         <label>Nom</label>
         <input type="text" placeholder="Ex: Thiam" name="nom">
         <label>Nom prenom</label>

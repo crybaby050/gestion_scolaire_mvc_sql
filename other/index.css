@@ -700,7 +700,7 @@ body{
     background: white;
     padding: 30px;
     width: 45%;
-    /* margin: 5%; */
+    margin: 3%;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
@@ -716,8 +716,20 @@ body{
     width: 100%;
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #e5e7eb;
+    transition: 0.3s ease;
     margin-top: 5px;
+}
+.form-card input:focus,
+.form-card select:focus{
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+    outline: none;
+}
+.form-card input:hover,
+.form-card select:hover{
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .btns{
@@ -729,7 +741,8 @@ body{
 }
 
 .btns .cancel{
-    background: #ff0000;
+    background: linear-gradient(to bottom, #fe4f4f, #ff0000);
+    box-shadow: 0 4px 0 #b30000;
     color: white;
     font-weight: bold;
     padding: 10px 20px;
@@ -738,9 +751,19 @@ body{
 }
 
 .btns .save{
-    background: #3b82f6;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    box-shadow: 0 4px 0 #0056b3;
     color: white;
     padding: 10px 25px;
     border-radius: 10px;
     border: none;
+    transition: 0.15s ease;
+}
+.btns .save:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+}
+.btns .cancel:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
 }
