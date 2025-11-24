@@ -1,50 +1,47 @@
-<?php 
-    require_once __DIR__ . '/../../controller/etudiantController.php';
-    $classes = tableClasse();
-    $error = newEtudiant();
+<?php
+require_once __DIR__ . '/../../controller/etudiantController.php';
+$classes = tableClasse();
+$error = newEtudiant();
 ?>
 <div class="add-container">
     <h2>Ajouter un étudiant</h2>
-    <form class="form-card">
-        
+    <form class="form-card" method="post">
         <div class="field">
             <label>Nom</label>
-            <input type="text" placeholder="Ex: Thiam">
-            <small class="error"><?= $error['nom'] ?? "" ?></small>
+            <input type="text" placeholder="Ex: Thiam" name="nom" value="<?= htmlspecialchars($_POST['nom'] ?? "") ?>">
+            <p class="error"><?= $error['nom'] ?? "" ?></p>
         </div>
-        
         <div class="field">
             <label>Prenom</label>
-            <input type="text" placeholder="Ex: Ben">
-            <small class="error"><?= $error['pre'] ?? "" ?></small>
+            <input type="text" placeholder="Ex: Ben" name="pre">
+            <p class="error"><?= $error['pre'] ?? "" ?></p>
         </div>
         <div class="field">
             <label>Email</label>
-            <input type="email" placeholder="exemple@mail.com">
-            <small class="error"><?= $error['mail'] ?? "" ?></small>
+            <input type="email" placeholder="exemple@mail.com" name="mail">
+            <p class="error"><?= $error['mail'] ?? "" ?></p>
         </div>
-        
-                <div class="field">
-                    <label>Classe</label>
-                    <select>
-                        <option value=""></option>
-                        <?php foreach($classes as $classe): ?>
-                            <option value="">
-                                <?= $classe['libelle'] ?? "" ?>
-                            </option>
-                        <?php endforeach ?>
-                    </select>
-                    <small class="error"><?= $error['cls'] ?? "" ?></small>
-                </div>
+        <div class="field">
+            <label>Classe</label>
+            <select name="cls">
+                <option value=""></option>
+                <?php foreach ($classes as $classe): ?>
+                    <option value="">
+                        <?= $classe['libelle'] ?? "" ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
+            <p class="error"><?= $error['cls'] ?? "" ?></p>
+        </div>
         <div class="field">
             <label>Téléphone</label>
-            <input type="text" placeholder="77xxxxxxx">
-            <small class="error"><?= $error['tel'] ?? "" ?></small>
+            <input type="text" placeholder="77xxxxxxx" name="tel">
+            <p class="error"><?= $error['tel'] ?? "" ?></p>
         </div>
         <div class="field">
             <label>Adresse</label>
-            <input type="text" placeholder="Ex: Dakar, Yoff">
-            <small class="error"><?= $error['ads'] ?? "" ?></small>
+            <input type="text" placeholder="Ex: Dakar, Yoff" name="ads">
+            <p class="error"><?= $error['ads'] ?? "" ?></p>
         </div>
         <div class="btns">
             <button type="button" class="cancel">Annuler</button>

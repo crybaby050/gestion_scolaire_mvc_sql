@@ -54,6 +54,6 @@ function newEtudiant(){
                 ajoutEtudiant($nom, $pre, $id_classe, $mail, $tel, $ads);
             }
         }
-        return $error;  //Pour affichage dans le formulaire
+        return $error;  
     }
 }
