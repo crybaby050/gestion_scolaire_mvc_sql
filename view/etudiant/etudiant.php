@@ -1,5 +1,5 @@
 <?php 
-    require_once __DIR__ . '/../../other/init.php';
+    require_once __DIR__ . '/../../controller/etudiantController.php';
     $etudiants = affiheEtudiant();
     $classes = getAllClasse();
 ?>
