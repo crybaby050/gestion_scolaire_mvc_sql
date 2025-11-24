@@ -22,9 +22,9 @@ function countElement($string){
     $stmt = $pdo->query($sql);
     return $stmt->fetchColumn();
 }
-function verifUniqueUniversel($str,$var){
+function verifUniqueUniversel($str,$var,$tab){
     $pdo = getPDO();
-    $sql = "SELECT * FROM users WHERE $var =:value LIMIT 1";
+    $sql = "SELECT * FROM $tab WHERE $var =:value LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['value'=>$str]);
     return $stmt->fetch();
