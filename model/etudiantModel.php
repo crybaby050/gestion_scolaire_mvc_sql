@@ -17,9 +17,9 @@ function getAllClasse(){
 }
 function getIdClasseByLibelle($string){
     $pdo = getPDO();
-    $sql = "SELECT id FROM classe WHERE libelle = :libelle";
+    $sql = "SELECT id FROM classe WHERE libelle = :value";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':libelle'=>$string]);
+    $stmt->execute(['value'=>$string]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ? $row['id'] : null;
 }

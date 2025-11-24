@@ -1,6 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/etudiantModel.php';
-require_once __DIR__ . '/../model/helperModel.php';
+require_once __DIR__ . '/../other/init.php';
 function tableClasse(){
     return $classes = getAllClasse();
 }
@@ -20,38 +19,41 @@ function newEtudiant(){
         $nom = sanitize($_POST['nom']);
         $pre = sanitize($_POST['pre']);
         $mail = sanitize($_POST['mail']);
-        $id_classe = sanitize($_POST['cls']);
+        $cls = sanitize($_POST['cls']);
         $tel = sanitize($_POST['tel']);
         $ads = sanitize($_POST['ads']);
         $error = [];
-        $verif = is_email($mail);
-        if(!$verif){
-            $error['mail'] = 'Mail invalide';
-        }else if(empty($mail)){
+        // Validation
+        if(empty($nom)) $error['nom'] = 'Champ obligatoire';
+        if(empty($pre)) $error['pre'] = 'Champ obligatoire';
+        if(empty($cls)) $error['cls'] = 'Champ obligatoire';
+        if(empty($tel)) $error['tel'] = 'Champ obligatoire';
+        if(empty($ads)) $error['ads'] = 'Champ obligatoire';
+        if(empty($mail)){
             $error['mail'] = 'Champ obligatoire';
+        } else if(!is_email($mail)){
+            $error['mail'] = 'Mail invalide';
         }
-        if(empty($nom)){
-            $error['nom'] = 'Champ obligatoire';
+        // Vérification des doublons
+        if(empty($error)){
+            $user_mail = verifUniqueUniversel($mail,'email');
+            $user_tel = verifUniqueUniversel($tel,'telephone');
+            if ($user_mail) {
+                $error['mail']='Utilisateur déjà enregistré';
+            } 
+            if($user_tel){
+                $error['tel']= 'Numéro déjà occupé';
+            }
+            // Transformation de la classe
+            $id_classe = getIdClasseByLibelle($cls);
+            if(!$id_classe){
+                $error['cls'] = 'Classe invalide';
+            }
+            // Insertion
+            if(empty($error)){
+                ajoutEtudiant($nom, $pre, $id_classe, $mail, $tel, $ads);
+            }
         }
-        if(empty($pre)){
-            $error['pre'] = 'Champ obligatoire';
-        }
-        if(empty($id_classe)){
-            $error['cls'] = 'Champ obligatoire';
-        }
-        if(empty($tel)){
-            $error['tel'] = 'Champ obligatoire';
-        }
-        if(empty($ads)){
-            $error['ads'] = 'Champ obligatoire';
-        }
-        if (empty($errors)) {
-        $user_mail = verifUniqueUniversel($mail,'email');
-        if ($user_mail) {
-            $error['mail']='Utilisateur déja enregistrer';
-        } else {
-            
-        }
-    }
+        return $error;  //Pour affichage dans le formulaire
     }
 }

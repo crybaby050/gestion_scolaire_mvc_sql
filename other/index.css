@@ -741,7 +741,7 @@ body{
 }
 
 .btns .cancel{
-    background: linear-gradient(to bottom, #fe4f4f, #ff0000);
+    background: linear-gradient(to bottom, #ff7676, #ff0000);
     box-shadow: 0 4px 0 #b30000;
     color: white;
     font-weight: bold;
@@ -771,9 +771,9 @@ body{
     color: #dc2626;
     font-size: 13px;
     margin-top: 4px;
-    display: none; /* caché par défaut */
+    /* display: none; */
 }
-.error.show {
+/* .error.show {
     display: block;
     animation: erIn 0.2s ease-in-out;
 }
@@ -781,4 +781,4 @@ body{
 @keyframes erIn {
     from { opacity: 0; transform: translateY(-3px); }
     to   { opacity: 1; transform: translateY(0); }
-}
+} */
