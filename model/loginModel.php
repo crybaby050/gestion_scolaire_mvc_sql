@@ -20,3 +20,10 @@ function verifMdp($mdp){
     $stmt->execute([':mdp'=>$mdp]);
     return $stmt->fetch();
 }
+function verifUniqueUniversel($str,$var){
+    $pdo = getPDO();
+    $sql = "SELECT * FROM users WHERE $var =:$var LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':$var'=>$str]);
+    return $stmt->fetch();
+}

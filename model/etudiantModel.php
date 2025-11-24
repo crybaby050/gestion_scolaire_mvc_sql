@@ -38,3 +38,16 @@ function filterEtudiantByClasse($string){
     $stmt->execute([':id'=>$id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+function ajoutEtudiant($nom,$pre,$id_classe,$mail,$tel,$ads){
+    $pdo=getPDO();
+    $sql = "INSERT INTO etudiant(nom,prenom,id_classe,email,telephone,adresse)
+            VALUES (:nom,:prenom,:id_classe,:email,:telephone,:adresse)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nom'=>$nom,
+        ':prenom'=>$pre,
+        ':id_classe'=>$id_classe,
+        ':telephone'=>$tel,
+        ':adresse'=>$ads
+    ]);
+}
