@@ -52,3 +52,14 @@ function ajoutEtudiant($nom,$pre,$id_classe,$mail,$tel,$ads){
         'adresse'=>$ads
     ]);
 }
+function findOneEtudiant(int $id): ?array {
+    $pdo = getPDO();
+    $sql = "SELECT e.id, e.matricule, e.nom, e.prenom, e.email, e.telephone, e.adresse, c.libelle
+            FROM etudiant AS e
+            INNER JOIN classe AS c ON e.id_classe = c.id
+            WHERE e.id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $etudiant ?: null;
+}

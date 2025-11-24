@@ -560,13 +560,20 @@ body{
 /* ----- STYLES DES CARDS ----- */
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+    padding: 0;
 }
 
 .student-card {
+    margin-bottom: 20px;
+    
+    margin-right: 41px;
     background: rgba(255, 255, 255, 0.10);
+    width: 30%; 
+    /* min-height: 200px;  */
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.3);
@@ -575,7 +582,58 @@ body{
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     transform: translateY(0);
     animation: cardFadeIn 1.5s ease forwards;
+    position: relative;
+    /* overflow: hidden;border: 1px solid rgb(91, 154, 255); */
 }
+
+
+
+.card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.card-actions a {
+    padding: 8px;
+    border-radius: 50%;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+/* Voir détails → Bleu */
+.btn-view {
+    background: #007bff;
+}
+.btn-view:hover {
+    background: #0056b3;
+}
+
+/* Modifier → Vert */
+.btn-edit {
+    background: #28a745;
+}
+.btn-edit:hover {
+    background: #1e7e34;
+}
+
+/* Supprimer → Rouge */
+.btn-delete {
+    background: #dc3545;
+}
+.btn-delete:hover {
+    background: #a71d2a;
+}
+
+
+
 .student-card:hover {
     transform: translateY(-20px) scale(1.05); /* Légère élévation + zoom */
     box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Ombre plus profonde */
@@ -664,8 +722,6 @@ body{
     z-index: 2;
 }
 
-
-
 /* Première colonne plus forte */
 .table-view td:first-child {
     font-weight: 600;
@@ -675,6 +731,47 @@ body{
 .table-view tr:last-child td {
     border-bottom: none;
 }
+
+
+.acte-btns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Base des boutons */
+.acte-btns a {
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* Voir détails */
+.table-view-btn {
+    background: #007bff;
+}
+.table-view-btn:hover {
+    background: #0056b3;
+}
+
+/* Modifier */
+.table-edit-btn {
+    background: #28a745;
+}
+.table-edit-btn:hover {
+    background: #1e7e34;
+}
+
+/* Supprimer */
+.table-delete-btn {
+    background: #dc3545;
+}
+.table-delete-btn:hover {
+    background: #a71d2a;
+}
+
 
 
 
@@ -805,7 +902,7 @@ body{
 
 /* detaille des etudiants */
 /* Wrapper général */
-.student-wrapper {
+.etu-details-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -813,11 +910,12 @@ body{
     margin-top: 60px;
     padding: 20px;
     background: #F6F9FC;
-    /* transition: 0.3s; */
 }
-#toggle:checked ~ .student-wrapper {
+
+#toggle:checked ~ .etu-details-wrapper {
     margin-left: 70px;
 }
+
 /* Grande bannière décorative */
 .banner {
     width: 100%;
@@ -828,7 +926,7 @@ body{
 }
 
 /* Carte principale */
-.student-card {
+.etu-details-card {
     background: #fff;
     width: 80%;
     margin-top: -80px;
@@ -838,34 +936,34 @@ body{
 }
 
 /* Image décorative */
-.decor-wrapper {
+.etu-details-decor {
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.decor-img {
+.etu-details-img {
     width: 140px;
     height: 140px;
     object-fit: contain;
-    border-radius: 50%;
     opacity: 0.95;
+    border-radius: 50%;
 }
 
 /* Nom + Matricule */
-.student-header {
+.etu-details-header {
     text-align: center;
     margin-bottom: 35px;
 }
 
-.student-name {
+.etu-details-name {
     font-size: 28px;
     font-weight: bold;
     margin: 0;
     color: #1f2937;
 }
 
-.student-id {
+.etu-details-id {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 20px;
@@ -876,23 +974,60 @@ body{
 }
 
 /* Grille des informations */
-.info-section {
+.etu-details-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
 
-.info-group h3 {
+.etu-details-group h3 {
     margin-bottom: 15px;
     font-size: 20px;
     color: #2563eb;
 }
 
-.info-group p {
+.etu-details-group p {
     font-size: 17px;
     margin: 10px 0;
 }
 
-strong {
-    font-weight: 600;
+/* Boutons */
+.etu-details-actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s ease;
+}
+
+/* Retour */
+.btn.return {
+    background: #6b7280;
+}
+.btn.return:hover {
+    background: #4b5563;
+}
+
+/* Modifier */
+.btn.edit {
+    background: #2563eb;
+}
+.btn.edit:hover {
+    background: #1d4ed8;
+}
+
+/* Supprimer */
+.btn.delete {
+    background: #dc2626;
+}
+.btn.delete:hover {
+    background: #b91c1c;
 }
