@@ -3,7 +3,7 @@
     <div class="student-card">
         <!-- Image décorative -->
         <div class="decor-wrapper">
-            <img src="/../image/school logo.jpg" alt="Décor" class="decor-img">
+            <img src="decor.png" alt="Décor" class="decor-img">
         </div>
         <!-- Nom + Matricule -->
         <div class="student-header">
@@ -24,6 +24,12 @@
                 <p><strong>Téléphone :</strong> 773882773</p>
                 <p><strong>Adresse :</strong> Dakar</p>
             </div>
+        </div>
+        <!-- Boutons d'action -->
+        <div class="action-buttons">
+            <a href="liste.php" class="btn return">Retour à la liste</a>
+            <a href="edit.php?id=1" class="btn edit">Modifier</a>
+            <a href="delete.php?id=1" class="btn delete">Supprimer</a>
         </div>
     </div>
 </div>
