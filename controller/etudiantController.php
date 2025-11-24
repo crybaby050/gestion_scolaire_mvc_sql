@@ -59,6 +59,3 @@ function newEtudiant()
         return [$error, $success];
     }
 }
-function detailEtudiant(){
-    
-}
