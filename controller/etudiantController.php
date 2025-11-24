@@ -46,11 +46,11 @@ function newEtudiant(){
             $error['ads'] = 'Champ obligatoire';
         }
         if (empty($errors)) {
-        $user = verifUser($mail);
-        if ($user) {
+        $user_mail = verifUniqueUniversel($mail,'email');
+        if ($user_mail) {
             $error['mail']='Utilisateur déja enregistrer';
         } else {
-            $errors['verif'] = "Utilisateur introuvable ou mot de passe incorrect";
+            
         }
     }
     }

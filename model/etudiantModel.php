@@ -35,7 +35,7 @@ function filterEtudiantByClasse($string){
     ON e.id_classe = c.id
     WHERE e.id_classe = :id";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':id'=>$id]);
+    $stmt->execute(['id'=>$id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 function ajoutEtudiant($nom,$pre,$id_classe,$mail,$tel,$ads){
@@ -44,11 +44,11 @@ function ajoutEtudiant($nom,$pre,$id_classe,$mail,$tel,$ads){
             VALUES (:nom,:prenom,:id_classe,:email,:telephone,:adresse)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':nom'=>$nom,
-        ':prenom'=>$pre,
-        ':email'=>$mail,
-        ':id_classe'=>$id_classe,
-        ':telephone'=>$tel,
-        ':adresse'=>$ads
+        'nom'=>$nom,
+        'prenom'=>$pre,
+        'email'=>$mail,
+        'id_classe'=>$id_classe,
+        'telephone'=>$tel,
+        'adresse'=>$ads
     ]);
 }

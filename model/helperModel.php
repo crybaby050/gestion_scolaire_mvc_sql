@@ -13,7 +13,7 @@ function verifUser($mail){
     $pdo = getPDO();
     $sql = "SELECT * FROM users WHERE mail =:mail LIMIT 1";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':mail'=>$mail]);
+    $stmt->execute(['mail'=>$mail]);
     return $stmt->fetch();
 }
 function countElement($string){
@@ -21,4 +21,11 @@ function countElement($string){
     $sql = "SELECT COUNT(*) FROM $string";
     $stmt = $pdo->query($sql);
     return $stmt->fetchColumn();
+}
+function verifUniqueUniversel($str,$var){
+    $pdo = getPDO();
+    $sql = "SELECT * FROM users WHERE $var =:value LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['value'=>$str]);
+    return $stmt->fetch();
 }

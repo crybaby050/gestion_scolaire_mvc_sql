@@ -3,7 +3,7 @@ function uniqueElement($nom){
     $pdo = getPDO();
     $sql = "SELECT * FROM users WHERE nom =:nom LIMIT 1";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':nom'=>$nom]);
+    $stmt->execute(['nom'=>$nom]);
     return $stmt->fetch();
 }
 // function verifUser($mail){
@@ -17,13 +17,6 @@ function verifMdp($mdp){
     $pdo = getPDO();
     $sql = "SELECT * FROM users WHERE mdp =:mdp LIMIT 1";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':mdp'=>$mdp]);
-    return $stmt->fetch();
-}
-function verifUniqueUniversel($str,$var){
-    $pdo = getPDO();
-    $sql = "SELECT * FROM users WHERE $var =:$var LIMIT 1";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([':$var'=>$str]);
+    $stmt->execute(['mdp'=>$mdp]);
     return $stmt->fetch();
 }
