@@ -505,9 +505,9 @@ body{
     border: none;
     border-radius: 50px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
+    box-shadow: 0 4px 0 #0056b3;
     color: white;
     border-radius: 50px;
-    box-shadow: 0 4px 0 #0056b3;
     transition: 0.1s;
 }
 .add-etu:active {
@@ -562,28 +562,24 @@ body{
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    /* border: 1px solid black; */
+    gap: 20px;
     padding: 0;
+    justify-content: space-between;
 }
 
 .student-card {
-    margin-bottom: 20px;
-    
-    margin-right: 41px;
-    background: rgba(255, 255, 255, 0.10);
-    width: 30%; 
-    /* min-height: 200px;  */
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+    padding: 25px;
     border: 1px solid rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    transform: translateY(0);
-    animation: cardFadeIn 1.5s ease forwards;
+    transition: transform .25s, box-shadow .25s;
     position: relative;
-    /* overflow: hidden;border: 1px solid rgb(91, 154, 255); */
+
+    /* 3 par ligne – pas de débordement */
+    flex: 0 0 calc(33.333% - 20px);
+    box-sizing: border-box;
 }
 
 
@@ -593,67 +589,76 @@ body{
     top: 10px;
     right: 10px;
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .card-actions a {
-    padding: 8px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     color: white;
-    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: bold;
     transition: 0.2s;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+}
+.card-actions a:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 
-/* Voir détails → Bleu */
 .btn-view {
-    background: #007bff;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    box-shadow: 0 4px 0 #0056b3;
 }
 .btn-view:hover {
-    background: #0056b3;
+    background: linear-gradient(to bottom, #6ec0ff, #1b8cff);
 }
 
-/* Modifier → Vert */
 .btn-edit {
-    background: #28a745;
+    background: linear-gradient(to bottom, #7dff8a, #28a745);
+    box-shadow: 0 4px 0 #1e7e34;
 }
 .btn-edit:hover {
-    background: #1e7e34;
+    background: linear-gradient(to bottom, #98ff9f, #31c152);
 }
 
-/* Supprimer → Rouge */
 .btn-delete {
-    background: #dc3545;
+    background: linear-gradient(to bottom, #ff7f7f, #dc3545);
+    box-shadow: 0 4px 0 #a71d2a;
 }
 .btn-delete:hover {
-    background: #a71d2a;
+    background: linear-gradient(to bottom, #ff9a9a, #e04151);
+}
+
+.student-card p {
+    margin: 6px 0;
 }
 
 
 
 .student-card:hover {
-    transform: translateY(-20px) scale(1.05); /* Légère élévation + zoom */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Ombre plus profonde */
+    transform: translateY(0px) scale(1.00);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 .card-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
 }
 
 .matricule {
-    background: #007bffc0;
+    background: #007bffcc;
     color: white;
     padding: 4px 10px;
     border-radius: 50px;
-    font-size: 80%;
+    font-size: 85%;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .student-card p {
