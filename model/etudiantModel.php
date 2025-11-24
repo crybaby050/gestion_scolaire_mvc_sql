@@ -46,6 +46,7 @@ function ajoutEtudiant($nom,$pre,$id_classe,$mail,$tel,$ads){
     $stmt->execute([
         ':nom'=>$nom,
         ':prenom'=>$pre,
+        ':email'=>$mail,
         ':id_classe'=>$id_classe,
         ':telephone'=>$tel,
         ':adresse'=>$ads
