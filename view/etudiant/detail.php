@@ -1,21 +1,25 @@
-<div class="details-container">
-    <h2>Détails de l'étudiant</h2>
-    <div class="details-card">
-        <!-- Zone image décorative -->
-        <div class="decor-image">
-            <img src="ton-image.png" alt="Décoration">
+<div class="student-wrapper">
+    <div class="banner"></div>
+    <div class="student-card">
+        <!-- Image décorative -->
+        <div class="decor-wrapper">
+            <img src="/../image/school logo.jpg" alt="Décor" class="decor-img">
         </div>
-        <div class="header-row">
-            <h3 class="etu-name">Ben Thiam</h3>
-            <span class="matricule">MAT-0001</span>
+        <!-- Nom + Matricule -->
+        <div class="student-header">
+            <h2 class="student-name">Ben Thiam</h2>
+            <span class="student-id">MAT-0001</span>
         </div>
-        <div class="info-grid">
-            <div class="info-block">
-                <p><strong>Classe :</strong> dev</p>
+        <!-- Informations -->
+        <div class="info-section">
+            <div class="info-group">
+                <h3>Informations Académiques</h3>
+                <p><strong>Classe :</strong> Dev</p>
                 <p><strong>Filière :</strong> Informatique</p>
                 <p><strong>Niveau :</strong> Licence 3</p>
             </div>
-            <div class="info-block">
+            <div class="info-group">
+                <h3>Informations Personnelles</h3>
                 <p><strong>Email :</strong> ben@gmail.com</p>
                 <p><strong>Téléphone :</strong> 773882773</p>
                 <p><strong>Adresse :</strong> Dakar</p>
