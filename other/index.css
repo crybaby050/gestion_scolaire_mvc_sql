@@ -175,7 +175,9 @@ body{
     top: 0;
     left: 220px; /* commence à droite du sidebar */
     height: 60px;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.445); /* fond semi-transparent */
+    backdrop-filter: blur(10px);         /* flou du contenu derrière */
+    -webkit-backdrop-filter: blur(10px);
     width: calc(100% - 220px);
     color: #2F3A4A;
     display: flex;
@@ -262,7 +264,7 @@ body{
     margin-top: 60px;
     background: #F6F9FC;
     transition: 0.3s;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 /* ---- MODE RÉTRACTÉ ---- */
@@ -301,6 +303,9 @@ body{
     width: 200%;
     padding-top: 5%;
 }
+
+
+
 /* configuration du css du dashboard */
 .card {
     width: 100%;
@@ -415,3 +420,258 @@ body{
     box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
 }
 
+
+
+
+/* configuration de la page de liste des etudiants */
+.etu-h{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transform: translateY(0);
+    animation: cardFadeIn 1s ease forwards;
+}
+.etu-h:hover {
+    transform: translateY(-12px) scale(1.02); /* Légère élévation + zoom */
+    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25); /* Ombre plus profonde */
+}
+
+
+.etu-fil{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.etu-fil form{
+    height: 8vh;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.etu-fil form div{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.etu-fil form select,
+.etu-fil form input{
+    height: 80%;
+    width: 100%;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #fff;
+    transition: all .25s ease;
+    outline: none;
+}
+.etu-fil form select:focus,
+.etu-fil form input:focus{
+    border-color: #1e90ff;
+    box-shadow: 0 0 4px rgba(30, 144, 255, 0.4);
+}
+.etu-fil form button{
+    height: 78%;
+    width: 29%;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 #0056b3;
+    transition: 0.1s;
+}
+.etu-fil form button:active {
+    box-shadow: 0 2px 0 #0056b3;
+    transform: translateY(2px);
+}
+.etu-fil a{
+    width: 20%;
+    height: 8vh;
+}
+.add-etu{
+    height: 80%;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 0 #0056b3;
+    transition: 0.1s;
+}
+.add-etu:active {
+    box-shadow: 0 2px 0 #0056b3;
+    transform: translateY(2px);
+}
+
+/* Bouton */
+.switch-btn {
+    display: inline-block;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 40%;
+    box-shadow: 0 4px 0 #0056b3;
+    transition: 0.1s;
+}
+
+.switch-btn:active {
+    box-shadow: 0 2px 0 #0056b3;
+    transform: translateY(2px);
+}
+
+/* Cacher le tableau au début */
+.table-view {
+    display: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-view th, .table-view td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Quand checkbox activé → on cache cardView et affiche tableau */
+#toggleView:checked ~ .card-container {
+    display: none;
+}
+
+#toggleView:checked ~ .table-view {
+    display: table;
+}
+
+/* ----- STYLES DES CARDS ----- */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.student-card {
+    background: rgba(255, 255, 255, 0.10);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transform: translateY(0);
+    animation: cardFadeIn 1.5s ease forwards;
+}
+.student-card:hover {
+    transform: translateY(-20px) scale(1.05); /* Légère élévation + zoom */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25); /* Ombre plus profonde */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.matricule {
+    background: #007bffc0;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 80%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-card p {
+    margin: 5px 0;
+}
+
+
+/* ---------- TABLE STYLÉE ---------- */
+
+.table-view {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.table-view th {
+    background: #007bff;
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.table-view td {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: none;
+    border-left: none;
+}
+
+/* Séparation élégante */
+.table-view tr:not(:last-child) td {
+    border-bottom: 1px solid #efefef;
+}
+
+/* Survol des lignes */
+.table-view tr:hover td {
+    background: #f6f9ff;
+    transition: 0.2s;
+}
+
+
+.table-view tr {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+     border-right: none;     /* enlève bordures verticales */
+    border-left: none;
+}
+.table-view tr:hover {
+    transform: translateY(-6px);
+    background: #f6f9ff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    position: relative; /* éviter que l’ombre soit coupée */
+    z-index: 2;
+}
+
+
+
+/* Première colonne plus forte */
+.table-view td:first-child {
+    font-weight: 600;
+}
+
+/* Coins arrondis si dernier élément */
+.table-view tr:last-child td {
+    border-bottom: none;
+}

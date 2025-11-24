@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../model/helperModel.php';
 $user = verifUser('benthiam@gmail.com');
+    $nameUser = $user['prenom'];
+
 ?>
 <input type="checkbox" id="toggle">
 <header class="header">
