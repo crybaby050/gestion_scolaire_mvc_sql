@@ -1034,11 +1034,19 @@ body{
 .classe-header {
     width: 100%;
     background: white;
-    padding: 15px;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(87,87,87,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transform: translateY(0);
+    animation: cardFadeIn 1s ease forwards;
     margin-bottom: 20px;
+}
+.classe-header:hover {
+    transform: translateY(-12px) scale(1.02); /* Légère élévation + zoom */
+    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25); /* Ombre plus profonde */
 }
 
 .classe-header h1 {
@@ -1065,7 +1073,8 @@ body{
     height: 100%;
 }
 
-.classe-filter-form input {
+.classe-filter-form input, 
+.classe-filter-form select{
     width: 100%;
     height: 80%;
     border: 1px solid #ccc;
@@ -1076,19 +1085,21 @@ body{
     transition: .25s;
 }
 
-.classe-filter-form input:focus {
+.classe-filter-form input:focus, 
+.classe-filter-form select:focus{
     border-color: #1e90ff;
     box-shadow: 0 0 4px rgba(30,144,255,0.4);
 }
 
 .classe-filter-form button {
     height: 80%;
-    width: 30%;
+    width: 35%;
     border: none;
     border-radius: 50px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
     color: white;
     box-shadow: 0 4px 0 #0056b3;
+    font-weight: bold;
     transition: 0.1s;
 }
 
@@ -1098,14 +1109,21 @@ body{
 }
 
 /* Ajouter une classe */
-.add-classe-btn {
+.classe-filters a{
+    width: 30%;
+    text-align: end;
     height: 8vh;
-    width: 100%;
+}
+.add-classe-btn {
+    height: 80%;
+    width: 70%;
     border-radius: 50px;
     border: none;
     background: linear-gradient(to bottom, #4facfe, #007bff);
     box-shadow: 0 4px 0 #0056b3;
     color: white;
+    font-weight: bold;
+    font-size: 100%;
     transition: .1s;
 }
 
@@ -1200,7 +1218,7 @@ body{
 
 .classe-code {
     background: #007bffcc;
-    padding: 4px 10px;
+    padding: 4px 20px;
     border-radius: 50px;
     color: white;
 }
