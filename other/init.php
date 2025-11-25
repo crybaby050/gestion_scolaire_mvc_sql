@@ -7,3 +7,5 @@ require_once __DIR__ . '/../model/loginModel.php';
 require_once __DIR__ . '/../model/etudiantModel.php';
 // model d'authentification d'utilisateur
 require_once __DIR__ . '/auth.php';
+//model de la page de classe
+require_once __DIR__ . '/../model/classeModel.php';
