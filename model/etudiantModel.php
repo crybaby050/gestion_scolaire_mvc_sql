@@ -6,7 +6,7 @@ function getAllEtudiant()
     FROM etudiant AS e
     INNER JOIN classe AS c
     ON e.id_classe = c.id
-    ";
+    ORDER BY prenom ASC";
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -37,7 +37,8 @@ function filterEtudiantByClasse($string)
     FROM etudiant AS e
     INNER JOIN classe AS c
     ON e.id_classe = c.id
-    WHERE e.id_classe = :id";
+    WHERE e.id_classe = :id
+    ORDER BY prenom ASC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,4 +81,10 @@ WHERE e.id = :id LIMIT 1";
     $stmt->execute(['id' => $id]);
     $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
     return $etudiant ?: null;
+}
+function deleteEtudiant($id){
+    $pdo = getPDO();
+    $sql = 'DELETE FROM etudiant WHERE id =:id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id'=>$id]);
 }

@@ -1,6 +1,3 @@
-<?php
-require_once __DIR__ . '/../../controller/etudiantController.php';
-$etudiant = findOneEtudiant(8) ?>
 <div class="etu-details-wrapper">
     <div class="banner"></div>
     <div class="etu-details-card">
@@ -30,9 +27,9 @@ $etudiant = findOneEtudiant(8) ?>
         </div>
         <!-- Boutons d'action -->
         <div class="etu-details-actions">
-            <a href="liste.php" class="btn return">Retour à la liste</a>
+            <a href="?page=etudiant" class="btn return">Retour à la liste</a>
             <a href="edit.php?id=1" class="btn edit">Modifier</a>
-            <a href="delete.php?id=1" class="btn delete">Supprimer</a>
+            <a href="?page=etudiant&delete=<?= $etudiant['id'] ?>" class="btn delete" onclick="return confirm('Êtes-vous sur de vouloir supprimer cette etudiants ?')">Supprimer</a>
         </div>
     </div>
 </div>

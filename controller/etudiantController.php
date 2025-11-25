@@ -67,3 +67,16 @@ function newEtudiant()
         return [$error, $success];
     }
 }
+function detailEtudiant(){
+    $id = $_GET['id'];
+    $etudiant = findOneEtudiant($id);
+    require_once __DIR__ . '/../view/etudiant/detail.php';
+}
+
+function SupprimerEtudiant(){
+    if(isset($_GET['delete'])){
+        $id = intval($_GET['delete']);
+        deleteEtudiant($id);
+        redirect('?page=etudiant&msg=success');
+    }
+}

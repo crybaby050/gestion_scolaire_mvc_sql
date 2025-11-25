@@ -17,6 +17,7 @@ switch ($page) {
         afficherDashboard();
         break;
     case 'etudiant':
+        SupprimerEtudiant();
     $etudiants = affiheEtudiant();
     $classes = tableClasse();
     require_once __DIR__ . '/../view/etudiant/etudiant.php';
@@ -25,6 +26,9 @@ switch ($page) {
         $classes = tableClasse();
         list($error, $success) = newEtudiant();
         require_once __DIR__ . '/../view/etudiant/ajout.php';
+        break;
+    case 'detail_etudiant':
+        detailEtudiant();
         break;
     case 'logout':
         session_destroy();

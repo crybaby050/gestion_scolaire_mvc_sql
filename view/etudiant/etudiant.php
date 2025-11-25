@@ -1,3 +1,9 @@
+<?php if(isset($_GET['msg']) && $_GET['msg'] === 'success'): ?>
+    <div class="alert-success-top">
+        Étudiant supprimé avec succès !
+    </div>
+<?php endif; ?>
+
 <div class="content">
     <div class="etu-h">
         <h1>Liste des etudiants</h1>
@@ -32,9 +38,9 @@
         <?php foreach ($etudiants as $etudiant): ?>
             <div class="student-card">
                 <div class="card-actions">
-                    <a href="view.php?id=<?= $etudiant['id'] ?>" class="btn-view"><i class="fas fa-eye"></i></a>
-                    <a href="update.php?id=<?= $etudiant['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
-                    <a href="delete.php?id=<?= $etudiant['id'] ?>" class="btn-delete"><i class="fas fa-trash"></i></a>
+                    <a href="?page=detail_etudiant&id=<?= $etudiant['id'] ?>" class="btn-view"><i class="fas fa-eye"></i></a>
+                    <a href="?page=update?id=<?= $etudiant['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
+                    <a href="?page=etudiant&delete=<?= $etudiant['id'] ?>" class="btn-delete" onclick="return confirm('Voulez-vous vraiment supprimer cet étudiant ?')"><i class="fas fa-trash"></i></a>
                 </div>
                 <div class="card-header">
                     <h3><?= $etudiant['prenom'] . " " . $etudiant['nom'] ?></h3>
