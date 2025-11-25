@@ -88,3 +88,26 @@ function deleteEtudiant($id){
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id'=>$id]);
 }
+
+function updateEtudiant($id,$nom,$prenom,$email,$classe,$telephone,$adresse){
+    $pdo = getPDO();
+    $sql = 'UPDATE etudiant
+    SET
+        nom =:nom,
+        prenom = :prenom,
+        email = :email,
+        id_classe = :classe,
+        telephone=:telephone,
+        adresse=:adresse
+    WHERE id=:id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'id'=>$id,
+        'prenom'=>$prenom,
+        'nom'=>$nom,
+        'email'=>$email,
+        'classe'=>$classe,
+        'telephone'=>$telephone,
+        'adresse'=>$adresse
+    ]);
+}

@@ -29,3 +29,18 @@ function verifUniqueUniversel($str,$var,$tab){
     $stmt->execute(['value'=>$str]);
     return $stmt->fetch();
 }
+function verifUniqueUniverselUpdate($value, $column, $table, $id) {
+    $pdo = getPDO();
+    $sql = "SELECT * FROM $table 
+            WHERE $column = :value 
+            AND id != :id
+            LIMIT 1";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'value' => $value,
+        'id'    => $id
+    ]);
+
+    return $stmt->fetch();
+}

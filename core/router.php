@@ -1,13 +1,13 @@
 <?php
 if ($page !== 'login') {
-    require_once __DIR__ . '/../other/header.php'; 
-    $nameUser = $_SESSION['userConnect']['prenom']." ".$_SESSION['userConnect']['nom'];
-    require_once __DIR__ . '/../other/sidebare.php';   
+    require_once __DIR__ . '/../other/header.php';
+    $nameUser = $_SESSION['userConnect']['prenom'] . " " . $_SESSION['userConnect']['nom'];
+    require_once __DIR__ . '/../other/sidebare.php';
 }
 
 switch ($page) {
     case 'login':
-        loginPage(); 
+        loginPage();
         break;
     case 'dashboard':
         if (!isset($_SESSION['userConnect'])) {
@@ -16,17 +16,20 @@ switch ($page) {
         }
         afficherDashboard();
         break;
-    case 'etudiant':
-        SupprimerEtudiant();
-    $etudiants = affiheEtudiant();
-    $classes = tableClasse();
-    require_once __DIR__ . '/../view/etudiant/etudiant.php';
-    break;
     case 'add_etudiant':
         $classes = tableClasse();
         list($error, $success) = newEtudiant();
         require_once __DIR__ . '/../view/etudiant/ajout.php';
         break;
+    case 'etudiant':
+        SupprimerEtudiant();
+        $etudiants = affiheEtudiant();
+        $classes = tableClasse();
+        require_once __DIR__ . '/../view/etudiant/etudiant.php';
+        break;
+        case 'update_etudiant':
+            editEtudiant();
+            break;
     case 'detail_etudiant':
         detailEtudiant();
         break;
@@ -38,6 +41,3 @@ switch ($page) {
         echo "Page introuvable.";
         break;
 }
-
-
-

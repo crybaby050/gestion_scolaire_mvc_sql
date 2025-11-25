@@ -1,9 +1,9 @@
-<?php if (!empty($success)): ?>
+<div class="add-container">
+    <?php if (!empty($success)): ?>
 <div class="success-popup">
     <?= $success ?>
 </div>
 <?php endif; ?>
-<div class="add-container">
     <h2>Ajouter un étudiant</h2>
     <form class="form-card" method="post">
         <div class="field">

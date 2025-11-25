@@ -1,10 +1,16 @@
-<?php if(isset($_GET['msg']) && $_GET['msg'] === 'success'): ?>
-    <div class="alert-success-top">
-        Étudiant supprimé avec succès !
-    </div>
+<div class="content">
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'update-success'): ?>
+<div class="popup-success">
+    Étudiant modifié avec succès !
+</div>
 <?php endif; ?>
 
-<div class="content">
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'delete-success'): ?>
+<div class="popup-success">
+    Étudiant supprimé avec succès !
+</div>
+<?php endif; ?>
+
     <div class="etu-h">
         <h1>Liste des etudiants</h1>
         <br>
@@ -39,7 +45,7 @@
             <div class="student-card">
                 <div class="card-actions">
                     <a href="?page=detail_etudiant&id=<?= $etudiant['id'] ?>" class="btn-view"><i class="fas fa-eye"></i></a>
-                    <a href="?page=update?id=<?= $etudiant['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
+                    <a href="?page=update_etudiant&id=<?= $etudiant['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i></a>
                     <a href="?page=etudiant&delete=<?= $etudiant['id'] ?>" class="btn-delete" onclick="return confirm('Voulez-vous vraiment supprimer cet étudiant ?')"><i class="fas fa-trash"></i></a>
                 </div>
                 <div class="card-header">
