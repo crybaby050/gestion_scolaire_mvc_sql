@@ -22,11 +22,68 @@ require_once __DIR__ . '/../model/helperModel.php';
         </div>
         <h2>ECOLE 221</h2>
     </div>
+
     <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Déconnexion</a></li>
+        <!-- Dashboard -->
+        <li>
+    <a href="?page=dashboard">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+    </a>
+</li>
+
+        <!-- Etudiants -->
+        <li>
+            <a href="?page=etudiant">
+                <i class="fa-solid fa-users"></i>
+                <span>Étudiants</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="?page=add_etudiant">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Ajouter Étudiant</span>
+            </a>
+        </li>
+
+        <!-- Classe -->
+        <li>
+            <a href="?page=classe">
+                <i class="fa-solid fa-chalkboard"></i>
+                <span>Classe</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="?page=add_classe">
+                <i class="fa-solid fa-plus"></i>
+                <span>Ajouter Classe</span>
+            </a>
+        </li>
+
+        <!-- Filière -->
+        <li>
+            <a href="?page=filiere">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Filière</span>
+            </a>
+        </li>
+
+        <!-- Niveau -->
+        <li>
+            <a href="?page=niveau">
+                <i class="fa-solid fa-stairs"></i>
+                <span>Niveau</span>
+            </a>
+        </li>
+
+        <!-- Déconnexion -->
+        <li class="logout">
+    <a href="?page=logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Déconnexion</span>
+    </a>
+</li>
     </ul>
 </aside>
-

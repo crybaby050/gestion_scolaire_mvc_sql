@@ -11,15 +11,16 @@ switch ($page) {
         break;
     case 'dashboard':
         if (!isset($_SESSION['userConnect'])) {
-            header("Location: " . WEBROOT . "?page=login");
+            redirect('?page=login');
             exit;
         }
         afficherDashboard();
         break;
     case 'etudiant':
-        $etudiants = affiheEtudiant();
-        require_once __DIR__ . '/../view/etudiant/etudiant.php';
-        break;
+    $etudiants = affiheEtudiant();
+    $classes = tableClasse();
+    require_once __DIR__ . '/../view/etudiant/etudiant.php';
+    break;
     case 'logout':
         session_destroy();
         header("Location: " . WEBROOT . "?page=login");
@@ -28,3 +29,6 @@ switch ($page) {
         echo "Page introuvable.";
         break;
 }
+
+
+

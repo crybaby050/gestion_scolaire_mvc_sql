@@ -8,13 +8,21 @@ function affiheEtudiant()
 {
     if (isset($_GET['filt'])) {
         $fil = sanitize($_GET['fil']);
+
         if (empty($fil)) {
-            return $etudiants = getAllEtudiant();
+            return getAllEtudiant();
+        } else {
+            return filterEtudiantByClasse($fil);
         }
-        return $etudiants = filterEtudiantByClasse($fil);
     } else {
-        return $etudiants = getAllEtudiant();
+        return getAllEtudiant();
     }
+}
+
+function listerEtudiants(){
+    $etudiants = affiheEtudiant();
+    $classes = tableClasse();
+    require_once __DIR__ . '/../view/etudiant/etudiant.php';
 }
 function newEtudiant()
 {

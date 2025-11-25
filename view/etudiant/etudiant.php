@@ -1,8 +1,3 @@
-<?php
-require_once __DIR__ . '/../../controller/etudiantController.php';
-$etudiants = affiheEtudiant();
-$classes = getAllClasse();
-?>
 <div class="content">
     <div class="etu-h">
         <h1>Liste des etudiants</h1>
@@ -10,6 +5,7 @@ $classes = getAllClasse();
         <p>Gestion des étudiants du système</p>
         <div class="etu-fil">
             <form action="" method="get">
+                <input type="hidden" name="page" value="etudiant">
                 <div>
                     <select name="fil" id="">
                         <option value=""></option>
