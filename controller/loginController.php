@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../other/auth.php';
 function loginPage()
 {
     $errors = [];

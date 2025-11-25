@@ -1,8 +1,8 @@
 <?php
 if ($page !== 'login') {
-    require_once '/../other/header.php';  
+    require_once __DIR__ . '/../other/header.php'; 
     $nameUser = $_SESSION['userConnect']['prenom']." ".$_SESSION['userConnect']['nom'];
-    require_once '/../other/sidebare.php';   
+    require_once __DIR__ . '/../other/sidebare.php';   
 }
 
 switch ($page) {

@@ -5,7 +5,7 @@
 // require_once __DIR__ . '/other/sidebare.php';
 // require_once __DIR__ . '/view/etudiant/detail.php';
 
-// session_start();
+session_start();
 
 require_once __DIR__ . "/config/constants.php";
 require_once __DIR__ . "/core/loader.php";
