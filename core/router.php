@@ -33,6 +33,9 @@ switch ($page) {
     case 'detail_etudiant':
         detailEtudiant();
         break;
+    case 'classe':
+        require_once __DIR__ . '/../view/classe/classe.php';
+        break;
     case 'logout':
         session_destroy();
         header("Location: " . WEBROOT . "?page=login");
