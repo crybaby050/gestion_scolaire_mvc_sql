@@ -1,23 +1,5 @@
 <?php
-function getAllEtudiant()
-{
-    $pdo = getPDO();
-    $sql = "SELECT e.id,e.matricule,e.nom,e.prenom,e.email,e.telephone,e.adresse,c.libelle
-    FROM etudiant AS e
-    INNER JOIN classe AS c
-    ON e.id_classe = c.id
-    ORDER BY prenom ASC";
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-function getAllClasse()
-{
-    $pdo = getPDO();
-    $sql = "SELECT *FROM classe";
-    $stmt = $pdo->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-function getIdClasseByLibelle($string)
+function getIdNiveauByLibelle($string)
 {
     $pdo = getPDO();
     $sql = "SELECT id FROM classe WHERE libelle = :value";
@@ -26,10 +8,10 @@ function getIdClasseByLibelle($string)
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ? $row['id'] : null;
 }
-function filterEtudiantByClasse($string)
+function filterClasseByNieau($string)
 {
     $pdo = getPDO();
-    $id = getIdClasseByLibelle($string);
+    $id = getIdNiveauByLibelle($string);
     if (!$id) {
         return [];
     }
