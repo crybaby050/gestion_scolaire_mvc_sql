@@ -1,8 +1,3 @@
-<?php
-require_once __DIR__ . '/../../controller/etudiantController.php';
-$classes = tableClasse();
-list($error, $success) = newEtudiant();
-?>
 <?php if (!empty($success)): ?>
 <div class="success-popup">
     <?= $success ?>
@@ -23,7 +18,7 @@ list($error, $success) = newEtudiant();
         </div>
         <div class="field">
             <label>Email</label>
-            <input type="email" placeholder="exemple@mail.com" name="mail"  value="<?= htmlspecialchars($_POST['mail'] ?? "") ?>">
+            <input type="text" placeholder="exemple@mail.com" name="mail"  value="<?= htmlspecialchars($_POST['mail'] ?? "") ?>">
             <p class="error"><?= $error['mail'] ?? "" ?></p>
         </div>
         <div class="field">

@@ -5,28 +5,28 @@
         <div class="l-card color-blue">
             <strong>Nombre d'étudiant</strong><br>
             <h1><?= $etu ?></h1>
-            <a href="">
+            <a href="?page=etudiant">
                 <div class="icon-circle"><i class="fa-solid fa-user-graduate"></i></div>
             </a>
         </div>
         <div class="l-card color-green">
             <strong>Nombre de classe</strong><br>
             <h1><?= $classe ?></h1>
-            <a href="nnknkkbk">
+            <a href="?page=classe">
                 <div class="icon-circle"><i class="fa-solid fa-school"></i></div>
             </a>
         </div>
         <div class="l-card color-orange">
             <strong>Nombre de niveau</strong><br>
             <h1><?= $niv ?></h1>
-            <a href="">
+            <a href="?page=niveau">
                 <div class="icon-circle"><i class="fa-solid fa-stairs"></i></div>
             </a>
         </div>
         <div class="l-card color-red">
             <strong>Nombre de filière</strong><br>
             <h1><?= $fil ?></h1>
-            <a href="">
+            <a href="?page=filiere">
                 <div class="icon-circle"><i class="fa-solid fa-layer-group"></i></div>
             </a>
         </div>

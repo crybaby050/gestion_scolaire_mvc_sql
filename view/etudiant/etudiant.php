@@ -16,7 +16,7 @@
                 </div>
                 <button type="submit" name="filt">Filtrer</button>
             </form>
-            <a href=""><button class="add-etu">Ajouter un etudiant</button></a>
+            <a href="?page=add_etudiant"><button class="add-etu">Ajouter un etudiant</button></a>
         </div>
     </div>
 

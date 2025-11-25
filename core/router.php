@@ -21,6 +21,11 @@ switch ($page) {
     $classes = tableClasse();
     require_once __DIR__ . '/../view/etudiant/etudiant.php';
     break;
+    case 'add_etudiant':
+        $classes = tableClasse();
+        list($error, $success) = newEtudiant();
+        require_once __DIR__ . '/../view/etudiant/ajout.php';
+        break;
     case 'logout':
         session_destroy();
         header("Location: " . WEBROOT . "?page=login");

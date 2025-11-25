@@ -65,7 +65,7 @@ require_once __DIR__ . '/../model/helperModel.php';
         <!-- Filière -->
         <li>
             <a href="?page=filiere">
-                <i class="fa-solid fa-layer-group"></i>
+                <i class="fa-solid fa-diagram-project"></i>
                 <span>Filière</span>
             </a>
         </li>
@@ -73,7 +73,7 @@ require_once __DIR__ . '/../model/helperModel.php';
         <!-- Niveau -->
         <li>
             <a href="?page=niveau">
-                <i class="fa-solid fa-stairs"></i>
+                <i class="fa-solid fa-layer-group"></i>
                 <span>Niveau</span>
             </a>
         </li>
