@@ -33,18 +33,12 @@ function findOneClasse(int $id): ?array
 {
     $pdo = getPDO();
     $sql = "SELECT 
-    e.id,
-    e.matricule,
-    e.nom,
-    e.prenom,
-    e.email,
-    e.telephone,
-    e.adresse,
-    c.libelle AS classe,
-    n.libelle AS niveau,
+    c.id,
+    c.code,
+    c.libelle,
+    n.libelle AS niveau
     f.libelle AS filiere
-FROM etudiant AS e
-INNER JOIN classe AS c ON e.id_classe = c.id
+FROM classe AS c
 INNER JOIN niveau AS n ON c.id_niveau = n.id
 INNER JOIN filiere AS f ON c.id_filiere = f.id
 WHERE e.id = :id LIMIT 1";
@@ -55,30 +49,26 @@ WHERE e.id = :id LIMIT 1";
 }
 function deleteClasse($id){
     $pdo = getPDO();
-    $sql = 'DELETE FROM etudiant WHERE id =:id';
+    $sql = 'DELETE FROM classe WHERE id =:id';
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id'=>$id]);
 }
 
-function updateClasse($id,$nom,$prenom,$email,$classe,$telephone,$adresse){
+function updateClasse($id,$lib,$code,$niv,$fil){
     $pdo = getPDO();
-    $sql = 'UPDATE etudiant
+    $sql = 'UPDATE classe
     SET
-        nom =:nom,
-        prenom = :prenom,
-        email = :email,
-        id_classe = :classe,
-        telephone=:telephone,
-        adresse=:adresse
+        libelle =:libelle,
+        code = :code,
+        id_niveau = :niveau,
+        id_filiere = :filiere
     WHERE id=:id';
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         'id'=>$id,
-        'prenom'=>$prenom,
-        'nom'=>$nom,
-        'email'=>$email,
-        'classe'=>$classe,
-        'telephone'=>$telephone,
-        'adresse'=>$adresse
+        'libelle'=>$lib,
+        'code'=>$code,
+        'niveau'=>$niv,
+        'filiere'=>$fil
     ]);
 }
