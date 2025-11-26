@@ -57,7 +57,7 @@
             <div class="classe-card-actions">
                 <a href="?page=detail_classe&id=<?= $classe['id'] ?>" class="c-view"><i class="fas fa-eye"></i></a>
                 <a href="?page=update_classe&id=<?= $classe['id'] ?>" class="c-edit"><i class="fas fa-edit"></i></a>
-                <a href="?page=classe&delete=<?= $classe['id'] ?>" class="c-delete" onclick="return confirm('La suppression de cette classe entraine la suppression des etudiants appartenant a cette classe <br>Voulez-vous continuer')"><i class="fas fa-trash"></i></a>
+                <a href="?page=classe&delete=<?= $classe['id'] ?>" class="c-delete" onclick="return confirm('La suppression de cette classe entraine la suppression des etudiants appartenant a cette classe \nVoulez-vous continuer')"><i class="fas fa-trash"></i></a>
             </div>
             <div class="classe-card-header">
                 <h3>Classe INFO</h3>

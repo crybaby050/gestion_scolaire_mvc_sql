@@ -59,7 +59,7 @@ function filterClasseByFiliere($string)
 function ajoutClasse($lib, $code, $id_niveau,$id_filiere)
 {
     $pdo = getPDO();
-    $sql = "INSERT INTO classe(lib,code,id_niveau,id_filiere)
+    $sql = "INSERT INTO classe(libelle,code,id_niveau,id_filiere)
             VALUES (:lib,:code,:id_niveau,:id_filiere)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
