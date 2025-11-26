@@ -1094,6 +1094,8 @@ body{
 .classe-filter-form button {
     height: 80%;
     width: 35%;
+    font-size: 90%;
+    padding: 2%;
     border: none;
     border-radius: 50px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
@@ -1265,6 +1267,7 @@ body{
     border-bottom: 1px solid #e5e5e5;
     border-right: none;
     border-left: none;
+    text-align: center;
 }
 /* Séparation élégante */
 .classe-table tr:not(:last-child) td {

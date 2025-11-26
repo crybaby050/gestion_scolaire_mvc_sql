@@ -15,10 +15,12 @@ function filterClasseByNiveau($string)
     if (!$id) {
         return [];
     }
-    $sql = "SELECT c.id,c.code,c.libelle,n.libelle
+    $sql = "SELECT c.id,c.code,c.libelle,n.libelle AS niveau_libelle,f.libelle AS filiere_libelle
     FROM classe AS c
     INNER JOIN niveau AS n
     ON c.id_niveau = n.id
+    INNER JOIN filiere AS f
+    ON c.id_filiere = f.id
     WHERE c.id_niveau = :id
     ORDER BY libelle ASC";
     $stmt = $pdo->prepare($sql);
@@ -41,10 +43,12 @@ function filterClasseByFiliere($string)
     if (!$id) {
         return [];
     }
-    $sql = "SELECT c.id,c.code,c.libelle,n.libelle
+    $sql = "SELECT c.id,c.code,c.libelle,n.libelle AS niveau_libelle,f.libelle AS filiere_libelle
     FROM classe AS c
     INNER JOIN filiere AS f
     ON c.id_filiere = f.id
+    INNER JOIN niveau AS n
+    ON c.id_niveau = n.id
     WHERE c.id_filiere = :id
     ORDER BY libelle ASC";
     $stmt = $pdo->prepare($sql);

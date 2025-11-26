@@ -11,4 +11,3 @@ require_once __DIR__ . "/config/constants.php";
 require_once __DIR__ . "/core/loader.php";
 require_once __DIR__ . "/core/authGuard.php";
 require_once __DIR__ . "/core/router.php";
-

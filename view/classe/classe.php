@@ -27,7 +27,7 @@
                         <?php endforeach ?>
                     </select>
                 </div>
-                <button type="submit" name="filt-niv">Filtrer</button>
+                <button type="submit" name="filt-niv">Filtrer par niveau</button>
             </form>
             <!-- Filtre par filière -->
             <form class="classe-filter-form" method="get">
@@ -40,7 +40,7 @@
                         <?php endforeach ?>
                     </select>
                 </div>
-                <button type="submit" name="filt-fil">Filtrer</button>
+                <button type="submit" name="filt-fil">Filtrer par filiere</button>
             </form>
             <a href="#">
                 <button class="add-classe-btn">Ajouter une classe</button>
