@@ -1,4 +1,13 @@
 <?php
+function getIdNiveauByLibelle($string)
+{
+    $pdo = getPDO();
+    $sql = "SELECT id FROM niveau WHERE libelle = :value";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['value' => $string]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ? $row['id'] : null;
+}
 function filterClasseByNiveau($string)
 {
     $pdo = getPDO();
@@ -16,6 +25,33 @@ function filterClasseByNiveau($string)
     $stmt->execute(['id' => $id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+function getIdFiliereByLibelle($string)
+{
+    $pdo = getPDO();
+    $sql = "SELECT id FROM filiere WHERE libelle = :value";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['value' => $string]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ? $row['id'] : null;
+}
+function filterClasseByFiliere($string)
+{
+    $pdo = getPDO();
+    $id = getIdFiliereByLibelle($string);
+    if (!$id) {
+        return [];
+    }
+    $sql = "SELECT c.id,c.code,c.libelle,n.libelle
+    FROM classe AS c
+    INNER JOIN filiere AS f
+    ON c.id_filiere = f.id
+    WHERE c.id_filiere = :id
+    ORDER BY libelle ASC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function ajoutClasse($lib, $code, $id_niveau,$id_filiere)
 {
     $pdo = getPDO();

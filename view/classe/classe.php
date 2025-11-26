@@ -8,16 +8,24 @@
             <!-- Filtre par niveau -->
             <form class="classe-filter-form">
                 <div>
-                    <input type="text" placeholder="Chercher un niveau...">
+                    <select name="filniv" id="">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
                 </div>
-                <button type="submit">Filtrer</button>
+                <button type="submit" name="filt-niv">Filtrer</button>
             </form>
             <!-- Filtre par filière -->
             <form class="classe-filter-form">
                 <div>
-                    <input type="text" placeholder="Chercher une filière...">
+                    <select name="filfil" id="">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
                 </div>
-                <button type="submit">Filtrer</button>
+                <button type="submit" name="filt-fil">Filtrer</button>
             </form>
             <a href="#">
                 <button class="add-classe-btn">Ajouter une classe</button>

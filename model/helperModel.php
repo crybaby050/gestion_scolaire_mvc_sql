@@ -62,3 +62,29 @@ function getAllClasse()
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+function getAllNiveau()
+{
+    $pdo = getPDO();
+    $sql = "SELECT *FROM niveau";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function getAllFiliere()
+{
+    $pdo = getPDO();
+    $sql = "SELECT *FROM filiere";
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function tableClasse()
+{
+    return $classes = getAllClasse();
+}
+function tableNiveau()
+{
+    return $niv = getAllNiveau();
+}
+function tableFiliere()
+{
+    return $fil = getAllFiliere();
+}

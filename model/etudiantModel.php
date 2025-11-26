@@ -1,5 +1,5 @@
 <?php
-function getIdNiveauByLibelle($string)
+function getIdClasseByLibelle($string)
 {
     $pdo = getPDO();
     $sql = "SELECT id FROM classe WHERE libelle = :value";
@@ -8,10 +8,10 @@ function getIdNiveauByLibelle($string)
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ? $row['id'] : null;
 }
-function filterClasseByNieau($string)
+function filterEtudiantByClasse($string)
 {
     $pdo = getPDO();
-    $id = getIdNiveauByLibelle($string);
+    $id = getIdClasseByLibelle($string);
     if (!$id) {
         return [];
     }

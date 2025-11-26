@@ -1,9 +1,5 @@
 <?php
-require_once __DIR__ . '/../other/init.php';
-function tableClasse()
-{
-    return $classes = getAllClasse();
-}
+// require_once __DIR__ . '/../other/init.php';
 function affiheEtudiant()
 {
     if (isset($_GET['filt'])) {
