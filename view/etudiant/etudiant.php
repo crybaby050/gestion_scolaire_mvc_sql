@@ -87,9 +87,9 @@
                     <td><?= $etudiant['telephone'] ?></td>
                     <td><?= $etudiant['adresse'] ?></td>
                     <td class="acte-btns">
-                        <a href="view.php?id=<?= $etudiant['id'] ?>" class="table-view-btn"><i class="fas fa-eye"></i></a>
-                        <a href="update.php?id=<?= $etudiant['id'] ?>" class="table-edit-btn"><i class="fas fa-edit"></i></a>
-                        <a href="delete.php?id=<?= $etudiant['id'] ?>" class="table-delete-btn"><i class="fas fa-trash"></i></a>
+                        <a href="?page=detail_etudiant&id=<?= $etudiant['id'] ?>" class="table-view-btn"><i class="fas fa-eye"></i></a>
+                        <a href="?page=update_etudiant&id=<?= $etudiant['id'] ?>" class="table-edit-btn"><i class="fas fa-edit"></i></a>
+                        <a href="?page=etudiant&delete=<?= $etudiant['id'] ?>" class="table-delete-btn"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             <?php endforeach ?>

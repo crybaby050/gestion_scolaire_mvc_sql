@@ -1,4 +1,15 @@
 <div class="classe-content">
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'update-success'): ?>
+<div class="popup-success">
+    Étudiant modifié avec succès !
+</div>
+<?php endif; ?>
+
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'delete-success'): ?>
+<div class="popup-success">
+    Étudiant supprimé avec succès !
+</div>
+<?php endif; ?>
 
     <div class="classe-header">
         <h1>Liste des classes</h1>
@@ -6,23 +17,27 @@
         <div class="classe-filters">
             
             <!-- Filtre par niveau -->
-            <form class="classe-filter-form">
+            <form class="classe-filter-form" method="get">
+                <input type="hidden" name="page" value="classe">
                 <div>
                     <select name="filniv" id="">
                         <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <?php foreach ($niveaux as $niveau): ?>
+                            <option value="<?= $niveau['libelle'] ?>"><?= $niveau['libelle'] ?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
                 <button type="submit" name="filt-niv">Filtrer</button>
             </form>
             <!-- Filtre par filière -->
-            <form class="classe-filter-form">
+            <form class="classe-filter-form" method="get">
+                <input type="hidden" name="page" value="classe">
                 <div>
                     <select name="filfil" id="">
                         <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <?php foreach ($filieres as $filiere): ?>
+                            <option value="<?= $filiere['libelle'] ?>"><?= $filiere['libelle'] ?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
                 <button type="submit" name="filt-fil">Filtrer</button>
@@ -37,23 +52,24 @@
     <label for="classeToggleView" class="classe-switch-btn">Changer d'affichage</label>
     <!-- CARDS -->
     <div class="classe-card-container">
-        
+        <?php foreach ($classes as $classe): ?>
         <div class="classe-card">
             <div class="classe-card-actions">
-                <a href="#" class="c-view"><i class="fas fa-eye"></i></a>
-                <a href="#" class="c-edit"><i class="fas fa-edit"></i></a>
-                <a href="#" class="c-delete"><i class="fas fa-trash"></i></a>
+                <a href="?page=detail_classe&id=<?= $classe['id'] ?>" class="c-view"><i class="fas fa-eye"></i></a>
+                <a href="?page=update_classe&id=<?= $classe['id'] ?>" class="c-edit"><i class="fas fa-edit"></i></a>
+                <a href="?page=classe&delete=<?= $classe['id'] ?>" class="c-delete" onclick="return confirm('La suppression de cette classe entraine la suppression des etudiants appartenant a cette classe <br>Voulez-vous continuer')"><i class="fas fa-trash"></i></a>
             </div>
             <div class="classe-card-header">
-                <h3>Classe A1</h3>
-                <span class="classe-code">C-A1</span>
+                <h3>Classe INFO</h3>
+                <span class="classe-code"><?= $classe['code'] ?></span>
             </div>
             <div class="classe-card-body">
-                <p><strong>Libellé :</strong> Informatique</p>
-                <p><strong>Filière :</strong> Développement</p>
-                <p><strong>Niveau :</strong> Licence 1</p>
+                <p><strong>Libellé :</strong> <?= $classe['libelle'] ?></p>
+                <p><strong>Filière :</strong> <?= $classe['filiere_libelle'] ?></p>
+                <p><strong>Niveau :</strong> <?= $classe['niveau_libelle'] ?></p>
             </div>
         </div>
+        <?php endforeach ?>
         <!-- DUPLIQUE LES CARDS SI NÉCESSAIRE -->
     </div>
     <!-- TABLEAU -->
@@ -68,17 +84,19 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($classes as $classe): ?>
             <tr>
-                <td>C-A1</td>
-                <td>Informatique</td>
-                <td>Développement</td>
-                <td>Licence 1</td>
+                <td><?= $classe['code'] ?></td>
+                <td><?= $classe['libelle'] ?></td>
+                <td><?= $classe['filiere_libelle'] ?></td>
+                <td><?= $classe['niveau_libelle'] ?></td>
                 <td class="classe-table-actions">
-                    <a href="#" class="ct-view"><i class="fas fa-eye"></i></a>
-                    <a href="#" class="ct-edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="ct-delete"><i class="fas fa-trash"></i></a>
+                    <a href="?page=detail_classe&id=<?= $classe['id'] ?>" class="ct-view"><i class="fas fa-eye"></i></a>
+                    <a href="?page=update_classe&id=<?= $classe['id'] ?>" class="ct-edit"><i class="fas fa-edit"></i></a>
+                    <a href="?page=classe&delete=<?= $classe['id'] ?>" class="ct-delete"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </div>

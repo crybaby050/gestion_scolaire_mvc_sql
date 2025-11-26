@@ -58,10 +58,22 @@ function getAllEtudiant()
 function getAllClasse()
 {
     $pdo = getPDO();
-    $sql = "SELECT *FROM classe";
+
+    $sql = "SELECT 
+                c.id,
+                c.code,
+                c.libelle,
+                f.libelle AS filiere_libelle,
+                n.libelle AS niveau_libelle
+            FROM classe AS c
+            INNER JOIN filiere AS f ON c.id_filiere = f.id
+            INNER JOIN niveau AS n ON c.id_niveau = n.id
+            ORDER BY c.libelle ASC";
+
     $stmt = $pdo->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 function getAllNiveau()
 {
     $pdo = getPDO();
