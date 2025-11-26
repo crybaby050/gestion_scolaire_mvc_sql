@@ -13,7 +13,7 @@
         </div>
         <div class="field">
             <label>Email</label>
-            <input type="text" placeholder="exemple@mail.com" name="mail"  value="<?= $etudiant['email'] ?>">
+            <input type="text" placeholder="exemple@mail.com" name="mail" value="<?= $etudiant['email'] ?>">
             <p class="error"><?= $error['mail'] ?? "" ?></p>
         </div>
         <div class="field">
@@ -21,10 +21,12 @@
             <select name="cls">
                 <option value=""></option>
                 <?php foreach ($classes as $classe): ?>
-                    <option  value="<?= $etudiant['classe'] ?>"<?= $etudiant['classe'] ? "selected" : "" ?>>
-                        <?= $classe['libelle'] ?? "" ?>
+                    <option
+                        value="<?= $classe['libelle'] ?>"
+                        <?= ($etudiant['classe'] === $classe['libelle']) ? "selected" : "" ?>>
+                        <?= $classe['libelle'] ?>
                     </option>
-                <?php endforeach ?>
+                <?php endforeach; ?>
             </select>
             <p class="error"><?= $error['cls'] ?? "" ?></p>
         </div>
