@@ -112,3 +112,18 @@ function updateClasse($id,$lib,$code,$niv,$fil){
         'filiere'=>$fil
     ]);
 }
+function getEtudiantFromClasse($id){
+    $pdo = getPDO();
+    $sql = "SELECT *FROM etudiant
+    WHERE id_classe = :id ORDER BY nom ASC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id'=>$id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function countEtudiantFromClasse($id){
+    $pdo = getPDO();
+    $sql = "SELECT COUNT(*) FROM etudiant WHERE id_classe = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id'=>$id]);
+    return $stmt->fetchColumn();
+}
