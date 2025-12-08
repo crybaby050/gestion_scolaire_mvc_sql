@@ -21,7 +21,7 @@
             <select name="niv">
                 <option value=""></option>
                 <?php foreach ($niveaux as $niveau): ?>
-                    <option  vniveaulue="<?= $niveau['libelle'] ?>"<?= (($_POST['niv'] ?? "") == $niveau['libelle']) ? "selected" : "" ?>>
+                    <option  value="<?= $niveau['libelle'] ?>"<?= (($_POST['niv'] ?? "") == $niveau['libelle']) ? "selected" : "" ?>>
                         <?= $niveau['libelle'] ?? "" ?>
                     </option>
                 <?php endforeach ?>
@@ -34,7 +34,7 @@
             <select name="fil">
                 <option value=""></option>
                 <?php foreach ($filieres as $filiere): ?>
-                    <option  vniveaulue="<?= $filiere['libelle'] ?>"<?= (($_POST['fil'] ?? "") == $filiere['libelle']) ? "selected" : "" ?>>
+                    <option  vlaue="<?= $filiere['libelle'] ?>"<?= (($_POST['fil'] ?? "") == $filiere['libelle']) ? "selected" : "" ?>>
                         <?= $filiere['libelle'] ?? "" ?>
                     </option>
                 <?php endforeach ?>

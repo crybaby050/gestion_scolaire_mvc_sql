@@ -47,15 +47,12 @@ switch ($page) {
         $filieres = tableFiliere();
         require_once __DIR__ . '/../view/classe/classe.php';
         break;
-        case 'updat_classe':
+        case 'update_classe':
             editClasse();
             break;
     case 'detail_classe':
         detailClasse();
         break;
-    
-
-
     case 'logout':
         session_destroy();
         header("Location: " . WEBROOT . "?page=login");

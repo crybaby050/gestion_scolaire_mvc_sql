@@ -114,9 +114,10 @@ function editClasse()
         }
         // -------- SI PAS D'ERREURS -> UPDATE --------
         if (empty($error)) {
-            updateClasse($id,$lib,$code,$niv,$fil);
+            updateClasse($id,$lib,$code,$id_niveau,$id_filiere);
             redirect('?page=classe&msg=update-success');
             exit;
         }
     }
+    require_once __DIR__ . '/../view/classe/edit.php';
 }

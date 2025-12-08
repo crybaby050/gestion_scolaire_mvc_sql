@@ -76,12 +76,12 @@ function findOneClasse(int $id): ?array
     c.id,
     c.code,
     c.libelle,
-    n.libelle AS niveau
+    n.libelle AS niveau,
     f.libelle AS filiere
 FROM classe AS c
 INNER JOIN niveau AS n ON c.id_niveau = n.id
 INNER JOIN filiere AS f ON c.id_filiere = f.id
-WHERE e.id = :id LIMIT 1";
+WHERE c.id = :id LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
     $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
