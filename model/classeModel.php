@@ -114,10 +114,24 @@ function updateClasse($id,$lib,$code,$niv,$fil){
 }
 function getEtudiantFromClasse($id){
     $pdo = getPDO();
-    $sql = "SELECT *FROM etudiant
-    WHERE id_classe = :id ORDER BY nom ASC";
+    
+    $sql = "SELECT 
+                e.id,
+                e.matricule,
+                e.nom,
+                e.prenom,
+                e.email,
+                e.telephone,
+                e.adresse,
+                c.libelle
+            FROM etudiant AS e
+            INNER JOIN classe AS c
+                ON e.id_classe = c.id
+            WHERE c.id = :id
+            ORDER BY e.prenom ASC";
+
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['id'=>$id]);
+    $stmt->execute(['id' => $id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 function countEtudiantFromClasse($id){

@@ -1351,14 +1351,14 @@ body{
 .cls-assoc{
     background-color: white;
     margin-top: 30px;
-    height: 30px;
     width: 100%;
+    padding: 10px;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 /* Bouton switch etudiant associer a une classe */
-.switch-btn {
+.switchetu-btn {
     /* display: inline-block; */
     background: linear-gradient(to bottom, #60fa98, #25eb39);
     padding: 10px 20px;
@@ -1367,12 +1367,19 @@ body{
     cursor: pointer;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-left: 40%;
     box-shadow: 0 4px 0 #00b351;
     transition: 0.1s;
 }
 
-.switch-btn:active {
+.switchetu-btn:active {
     box-shadow: 0 2px 0 #0056b3;
     transform: translateY(2px);
+}
+/* Quand checkbox activé → on cache cardView et affiche tableau */
+#switchetu:checked ~ .card-container {
+    display: none;
+}
+
+#switchetu:checked ~ .table-view {
+    display: table;
 }

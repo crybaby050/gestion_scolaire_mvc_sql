@@ -67,6 +67,7 @@ function detailClasse()
 {
     $id = $_GET['id'];
     $classe = findOneClasse($id);
+    $etudiants = getEtudiantFromClasse($id);
     require_once __DIR__ . '/../view/classe/detail.php';
 }
 
