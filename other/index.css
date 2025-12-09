@@ -1432,17 +1432,41 @@ body{
     margin-left: 70px;
 }
 .filajout{
-    border: 1px solid black;
     width: 100%;
 }
 .filajout h3{
     margin-bottom: 10px;
 }
 .filform{
-    border: 1px solid black;
     width: 100%;
     background-color: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+.filform form{
+    width: 100%;
+}
+.filform form input{
+    height: 100%;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #9d9d9d;
+}
+.filform form button{
+    height: 100%;
+    width: 15%;
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    box-shadow: 0 4px 0 #0056b3;
+    transition: 0.1s;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    border: none;
+}
+
+.filform form button:active {
+    box-shadow: 0 2px 0 #0056b3;
+    transform: translateY(2px);
 }
