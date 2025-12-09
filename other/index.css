@@ -1030,6 +1030,10 @@ body{
     transition: 0.3s;
 }
 
+#toggle:checked ~ .classe-content {
+    margin-left: 70px;
+}
+
 /* ----- HEADER ----- */
 .classe-header {
     width: 100%;
