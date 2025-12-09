@@ -123,6 +123,11 @@ body{
     display: block;
     transition: background 0.25s ease, padding-left 0.25s ease;
 }
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 /* --- Icônes style thème bleu --- */
 .sidebar ul li a i {
     font-size: 18px;
@@ -203,11 +208,19 @@ body{
 }
 
 /* Cacher texte du sidebar */
-#toggle:checked ~ .sidebar ul li a {
+/* #toggle:checked ~ .sidebar ul li a {
     text-indent: -9999px;
+} */
+#toggle:checked ~ .sidebar ul{
+    list-style: none;
+}
+#toggle:checked ~ .sidebar ul li{
+    list-style: none;
+}
+#toggle:checked ~ .sidebar ul li a {
+    justify-content: center;
 }
 #toggle:checked ~ .sidebar ul li a::before {
-    content: "•";
     text-indent: 0;
     margin-left: 25px;
     color: white;
@@ -215,10 +228,14 @@ body{
 #toggle:checked ~ .sidebar ul li a span {
     display: none;
 }
-#toggle:checked ~ .sidebar ul li a i {
+/* #toggle:checked ~ .sidebar ul li a i {
     margin: 0 auto;
     display: block;
     font-size: 22px;
+} */
+#toggle:checked ~ .sidebar ul li a i {
+    font-size: 18px;
+    margin: 0;
 }
 
 /* Cacher titre du sidebar */
@@ -1396,4 +1413,36 @@ body{
     border-bottom: 1px dotted #000;
     padding-bottom: 4px;
     margin: 8px 0;
+}
+
+
+/* filiere */
+/* Wrapper général */
+.fil-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 220px;
+    margin-top: 60px;
+    padding: 20px;
+    background: #F6F9FC;
+}
+
+#toggle:checked ~ .fil-content {
+    margin-left: 70px;
+}
+.filajout{
+    border: 1px solid black;
+    width: 100%;
+}
+.filajout h2{
+    margin-bottom: 10px;
+}
+.filform{
+    border: 1px solid black;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
