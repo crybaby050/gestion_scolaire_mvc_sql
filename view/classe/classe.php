@@ -42,7 +42,7 @@
                 </div>
                 <button type="submit" name="filt-fil">Filtrer par filiere</button>
             </form>
-            <a href="#">
+            <a href="?page=add_classe">
                 <button class="add-classe-btn">Ajouter une classe</button>
             </a>
         </div>

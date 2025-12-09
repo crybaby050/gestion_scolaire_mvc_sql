@@ -84,8 +84,8 @@ INNER JOIN filiere AS f ON c.id_filiere = f.id
 WHERE c.id = :id LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id]);
-    $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $etudiant ?: null;
+    $classe = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $classe ?: null;
 }
 function deleteClasse($id){
     $pdo = getPDO();
