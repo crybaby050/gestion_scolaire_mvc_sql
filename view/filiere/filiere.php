@@ -1,6 +1,6 @@
 <div class="fil-content">
     <div class="filajout">
-        <h2>Ajouter une filiere</h2>
+        <h3>Ajouter une filiere</h3>
         <div class="filform">
             <form action="" method="post">
                 <input type="text" placeholder="Nouveau filiere" name="lib">
