@@ -5,6 +5,7 @@
             <form action="" method="post">
                 <input type="text" placeholder="Nouveau filiere" name="lib">
                 <!-- bcGtdMil08    ne pas supprimer mot de passe de compte -->
+                <button type="submit" name="add_fil">Ajouter</button>
             </form>
         </div>
     </div>
