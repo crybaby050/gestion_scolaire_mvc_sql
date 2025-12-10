@@ -1514,7 +1514,6 @@ body{
     
 }
 .fil-elem{
-    border: 1px solid red;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -1522,49 +1521,74 @@ body{
     font-size: 100%;
 }
 .filicone{
-    border: 1px solid black;
     height: 100%;
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 250%;
+    font-size: 400%;
+    color: rgba(248, 0, 0, 0.347);
 }
 .fil-info{
-    border: 1px solid black;
     padding: 10px;
 }
 .detail-fil{
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
-    gap: 35px;
+    margin-top: 15px;
+    gap: 15px;
 
 }
 .filem{
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 .filem span{
-    border: 1px solid black;
     width: 100%;
 }
 .det-fil{
     background: linear-gradient(to bottom, #4facfe, #007bff);
     box-shadow: 0 4px 0 #0056b3;
+    transition: 0.15s ease;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
-.bdet-fil:hover {
+.det-fil:hover {
     background: linear-gradient(to bottom, #6ec0ff, #1b8cff);
 }
 .rem-fil{
     background: linear-gradient(to bottom, #ff7f7f, #dc3545);
     box-shadow: 0 4px 0 #a71d2a;
+    transition: 0.15s ease;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 .rem-fil:hover {
     background: linear-gradient(to bottom, #ff9a9a, #e04151);
+}
+.rem-fil:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+}
+.det-fil:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+}
+.det-fil i{
+    color: white;
+}
+.rem-fil i{
+    color: white;
 }
