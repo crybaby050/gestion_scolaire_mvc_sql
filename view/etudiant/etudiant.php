@@ -4,8 +4,13 @@
     Étudiant modifié avec succès !
 </div>
 <?php endif; ?>
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'add-success'): ?>
+<div class="popup-success">
+    Étudiant ajouter avec succès !
+</div>
+<?php endif; ?>
 
-<?php if (isset($_GET['msg']) && $_GET['msg'] === 'delete-success'): ?>
+<?php if (isset($_GET['msg']) && $_GET['msg'] === 'success'): ?>
 <div class="popup-success">
     Étudiant supprimé avec succès !
 </div>

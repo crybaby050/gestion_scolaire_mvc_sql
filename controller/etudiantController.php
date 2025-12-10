@@ -60,8 +60,9 @@ function newEtudiant()
         if (empty($error)) {
             ajoutEtudiant($nom, $pre, $id_classe, $mail, $tel, $ads);
             $success = "Étudiant enregistré avec succès !";
+            return [$error, $success];
+            redirect('?page=add_etudiant&msg=add-succes');
         }
-        return [$error, $success];
     }
 }
 function detailEtudiant()
