@@ -1,4 +1,9 @@
 <div class="fil-content">
+    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'update-success'): ?>
+        <div class="popup-success">
+            Classe modifié avec succès !
+        </div>
+    <?php endif; ?>
     <div class="filajout">
         <h3>Ajouter une filiere</h3>
         <div class="filform">
