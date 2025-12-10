@@ -13,6 +13,7 @@ function theFiliere(){
         $succes = "";
         if(empty($error)){
             $succes = "Filière enregistrer avec succée !";
+            ajoutFiliere($lib);
             redirect('?page=filiere&msg=add-success');
         }
         return [$error,$succes];
