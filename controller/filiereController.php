@@ -11,8 +11,9 @@ function theFiliere(){
             $error = 'Filiere déja présent';
         }
         $succes = "";
-        if(isset($error)){
+        if(empty($error)){
             $succes = "Filière enregistrer avec succée !";
+            redirect('?page=filiere&msg=add-success');
         }
         return [$error,$succes];
     }

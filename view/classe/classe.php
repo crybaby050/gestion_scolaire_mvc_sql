@@ -7,7 +7,7 @@
 
 <?php if (isset($_GET['msg']) && $_GET['msg'] === 'delete-success'): ?>
 <div class="popup-success">
-    Étudiant supprimé avec succès !
+    Classse supprimé avec succès !
 </div>
 <?php endif; ?>
 
