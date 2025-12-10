@@ -523,7 +523,6 @@ body{
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
     transition: transform .25s, box-shadow .25s;
     position: relative;
-
     /* 3 par ligne – pas de débordement */
     flex: 0 0 calc(33.333% - 20px);
     box-sizing: border-box;
@@ -1472,14 +1471,14 @@ body{
 }
 .filist{
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .filist h3{
     margin-bottom: 10px;
     margin-top: 15px;
 }
 .filcard{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -1487,15 +1486,85 @@ body{
     gap: 10px;
 }
 
-.fil-card{
+/* .fil-card{
     border: 1px solid black;
     height: 100px;
     width: 26%;
-    /* padding: 0px; */
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+} */
+.fil-card {
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    transition: transform .25s, box-shadow .25s;
+    position: relative;
+    /* 3 par ligne – pas de débordement */
+    flex: 0 0 calc(33.333% - 20px);
+    box-sizing: border-box;
+    /* text-align: center; */
+    
+}
+.fil-elem{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 100%;
+}
+.filicone{
+    border: 1px solid black;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 250%;
+}
+.fil-info{
+    border: 1px solid black;
+    padding: 10px;
+}
+.detail-fil{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 35px;
+
+}
+.filem{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.filem span{
+    border: 1px solid black;
+    width: 100%;
+}
+.det-fil{
+    background: linear-gradient(to bottom, #4facfe, #007bff);
+    box-shadow: 0 4px 0 #0056b3;
+}
+.bdet-fil:hover {
+    background: linear-gradient(to bottom, #6ec0ff, #1b8cff);
+}
+.rem-fil{
+    background: linear-gradient(to bottom, #ff7f7f, #dc3545);
+    box-shadow: 0 4px 0 #a71d2a;
+}
+
+.rem-fil:hover {
+    background: linear-gradient(to bottom, #ff9a9a, #e04151);
 }

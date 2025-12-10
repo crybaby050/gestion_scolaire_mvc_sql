@@ -12,7 +12,23 @@
     <div class="filist">
         <h3>Liste des filieres</h3>
         <div class="filcard">
-            
+            <div class="fil-card">
+                <div class="fil-elem">
+                    <div class="filicone">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <div class="fil-info">
+                        <div class="filem">
+                            <span><strong>Libelle :</strong>Developement Web</span>
+                            <span><strong>Nombre de classe Associer :</strong>3</span>
+                        </div>
+                        <div class="detail-fil">
+                            <a href="#" class="det-fil"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="rem-fil"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
