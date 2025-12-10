@@ -6,3 +6,4 @@ require_once __DIR__ . '/../controller/dashboardController.php';
 require_once __DIR__ . '/../controller/etudiantController.php';
 require_once __DIR__ . '/../controller/loginController.php';
 require_once __DIR__ . '/../controller/classeController.php';
+require_once __DIR__ . '/../controller/filiereController.php';
