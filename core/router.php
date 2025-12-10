@@ -58,7 +58,7 @@ switch ($page) {
         header("Location: " . WEBROOT . "?page=login");
         exit;
     case 'filiere':
-        require_once __DIR__ .'/../view/filiere/filiere.php';
+        theFiliere();
         break;
     default:
         echo "Page introuvable.";

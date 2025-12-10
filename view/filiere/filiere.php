@@ -1,7 +1,7 @@
 <div class="fil-content">
-    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'update-success'): ?>
+    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'add-success'): ?>
         <div class="popup-success">
-            Classe modifié avec succès !
+            Classe enregistrer avec succès !
         </div>
     <?php endif; ?>
     <div class="filajout">
