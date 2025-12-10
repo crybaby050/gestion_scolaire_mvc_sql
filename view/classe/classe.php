@@ -1,7 +1,7 @@
 <div class="classe-content">
 <?php if (isset($_GET['msg']) && $_GET['msg'] === 'update-success'): ?>
 <div class="popup-success">
-    Étudiant modifié avec succès !
+    Classe modifié avec succès !
 </div>
 <?php endif; ?>
 
