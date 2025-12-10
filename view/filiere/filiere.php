@@ -9,4 +9,8 @@
             </form>
         </div>
     </div>
+    <div class="filist">
+        <h3>Liste des filieres</h3>
+        <div class="filcard"></div>
+    </div>
 </div>
