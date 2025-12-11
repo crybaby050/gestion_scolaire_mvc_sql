@@ -14,9 +14,9 @@ function theFiliere(){
         if(empty($error)){
             $succes = "Filière enregistrer avec succée !";
             ajoutFiliere($lib);
+            // return [$error,$succes];
             redirect('?page=filiere&msg=add-success');
         }
-        return [$error,$succes];
     }
     $filieres = getAllFiliere();
     require_once __DIR__ . '/../view/filiere/filiere.php';

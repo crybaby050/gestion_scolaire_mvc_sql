@@ -9,6 +9,7 @@
         <div class="filform">
             <form action="" method="post">
                 <input type="text" placeholder="Nouveau filiere" name="lib">
+                <p><?= $error ?? "" ?></p>
                 <!-- bcGtdMil08    ne pas supprimer mot de passe de compte -->
                 <button type="submit" name="add_fil">Ajouter</button>
             </form>
@@ -17,6 +18,7 @@
     <div class="filist">
         <h3>Liste des filieres</h3>
         <div class="filcard">
+            <?php foreach($filieres as $filiere): ?>
             <div class="fil-card">
                 <div class="fil-elem">
                     <div class="filicone">
@@ -24,8 +26,8 @@
                     </div>
                     <div class="fil-info">
                         <div class="filem">
-                            <span><strong>Libelle :</strong>Developement Web</span>
-                            <span><strong>Nombre de classe Associer :</strong>3</span>
+                            <span><strong>Libelle :</strong><?= $filiere['libelle'] ?></span>
+                            <span><strong>Nombre de classe Associer :</strong><?= countClasseFromFiliere($filiere['id']) ?></span>
                         </div>
                         <div class="detail-fil">
                             <a href="#" class="det-fil"><i class="fas fa-eye"></i></a>
@@ -34,6 +36,7 @@
                     </div>
                 </div>
             </div>
+            <?php endforeach ?>
         </div>
     </div>
 </div>
