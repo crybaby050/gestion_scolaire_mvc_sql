@@ -1549,7 +1549,7 @@ body{
     display: flex;
     /* justify-content: center;
     align-items: center; */
-    padding: 5px;
+    /* padding: 5px; */
     margin-top: 15px;
     gap: 15px;
 
@@ -1581,9 +1581,9 @@ body{
     background: linear-gradient(to bottom, #ff7f7f, #dc3545);
     box-shadow: 0 4px 0 #a71d2a;
     transition: 0.15s ease;
-    border-radius: 50%;
+    border-radius: 50px;
     height: 35px;
-    width: 35px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

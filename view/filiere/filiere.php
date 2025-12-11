@@ -32,7 +32,7 @@
                             <span><strong>Nombre de classe Associer :</strong><?= countClasseFromFiliere($filiere['id']) ?></span>
                         </div>
                         <div class="detail-fil">
-                            <a href="#" class="det-fil"><i class="fas fa-eye"></i></a>
+                            <!-- <a href="#" class="det-fil"><i class="fas fa-eye"></i></a> -->
                             <a href="#" class="rem-fil"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
