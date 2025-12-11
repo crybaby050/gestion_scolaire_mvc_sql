@@ -11,3 +11,5 @@ require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../model/classeModel.php';
 //model de la page filiere
 require_once __DIR__ . '/../model/filiereModel.php';
+//model de la page de niveau
+require_once __DIR__ . '/../model/niveauModel.php';
