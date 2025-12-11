@@ -13,7 +13,7 @@ function theNiveau(){
         // $succes = "";
         if(empty($error)){
             // $succes = "Filière enregistrer avec succée !";
-            ajoutFiliere($lib);
+            ajoutNiveau($lib);
             // return [$error,$succes];
             redirect('?page=niveau&msg=add-success');
         }
