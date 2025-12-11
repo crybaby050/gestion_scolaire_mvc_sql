@@ -1,7 +1,12 @@
 <div class="fil-content">
     <?php if (isset($_GET['msg']) && $_GET['msg'] === 'add-success'): ?>
         <div class="popup-success">
-            Classe enregistrer avec succès !
+            Filiere enregistrer avec succès !
+        </div>
+    <?php endif; ?>
+    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'rm-success'): ?>
+        <div class="popup-success">
+            Filier supprimer avec succès !
         </div>
     <?php endif; ?>
     <div class="filajout">
@@ -33,7 +38,7 @@
                         </div>
                         <div class="detail-fil">
                             <!-- <a href="#" class="det-fil"><i class="fas fa-eye"></i></a> -->
-                            <a href="#" class="rem-fil"><i class="fas fa-trash"></i></a>
+                            <a href="?page=filiere&delete=<?= $filiere['id'] ?>" class="rem-fil"><i class="fas fa-trash"></i></a>
                         </div>
                     </div>
                 </div>

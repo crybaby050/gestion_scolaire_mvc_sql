@@ -18,6 +18,11 @@ function theFiliere(){
             redirect('?page=filiere&msg=add-success');
         }
     }
+    if (isset($_GET['delete'])) {
+        $id = intval($_GET['delete']);
+        deleteFiliere($id);
+        redirect('?page=filiere&msg=rm-success');
+    }
     $filieres = getAllFiliere();
     require_once __DIR__ . '/../view/filiere/filiere.php';
 }
