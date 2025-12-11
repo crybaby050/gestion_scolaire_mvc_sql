@@ -34,7 +34,7 @@
                     <div class="fil-info">
                         <div class="filem">
                             <span><strong>Libelle :</strong><?= $niveau['libelle'] ?></span>
-                            <span><strong>Nombre de classe Associer :</strong><?= countClasseFromFiliere($niveau['id']) ?></span>
+                            <span><strong>Nombre de classe Associer :</strong><?= countClasseFromNiveau($niveau['id']) ?></span>
                         </div>
                         <div class="detail-fil">
                             <!-- <a href="#" class="det-fil"><i class="fas fa-eye"></i></a> -->
