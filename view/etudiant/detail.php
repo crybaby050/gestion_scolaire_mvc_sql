@@ -28,7 +28,7 @@
         <!-- Boutons d'action -->
         <div class="etu-details-actions">
             <a href="?page=etudiant" class="btn return">Retour à la liste</a>
-            <a href="edit.php?id=1" class="btn edit">Modifier</a>
+            <a href="?page=update_etudiant&id=<?= $etudiant['id'] ?>" class="btn edit">Modifier</a>
             <a href="?page=etudiant&delete=<?= $etudiant['id'] ?>" class="btn delete" onclick="return confirm('Êtes-vous sur de vouloir supprimer cette etudiants ?')">Supprimer</a>
         </div>
     </div>
