@@ -28,7 +28,7 @@
             <?php foreach($niveaux as $niveau): ?>
             <div class="fil-card">
                 <div class="fil-elem">
-                    <div class="filicone">
+                    <div class="nivicone">
                         <i class="fa-solid fa-diagram-project"></i>
                     </div>
                     <div class="fil-info">
