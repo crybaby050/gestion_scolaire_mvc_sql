@@ -67,6 +67,7 @@
                 <p><strong>Libellé :</strong> <?= $classe['libelle'] ?></p>
                 <p><strong>Filière :</strong> <?= $classe['filiere_libelle'] ?></p>
                 <p><strong>Niveau :</strong> <?= $classe['niveau_libelle'] ?></p>
+                <p><strong>Nombre d'etudiant associer :</strong> <?= countEtudiantFromClasse($classe['id']) ?></p>
             </div>
         </div>
         <?php endforeach ?>
