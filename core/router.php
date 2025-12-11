@@ -55,6 +55,9 @@ switch ($page) {
     case 'filiere':
         theFiliere();
         break;
+    case 'niveau':
+        theNiveau();
+        break;
     default:
         echo "Page introuvable.";
         break;
