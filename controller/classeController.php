@@ -1,23 +1,31 @@
 <?php
 function afficheClasse()
 {
+    $niveaux = tableNiveau();
+    $filieres = tableFiliere();
     if (isset($_GET['filt-niv'])) {
         $fil = sanitize($_GET['filniv']);
         if (empty($fil)) {
-            return getAllClasse();
+            $classes = getAllClasse();
         } else {
-            return filterClasseByNiveau($fil);
+            $classes = filterClasseByNiveau($fil);
         }
-    } else if(isset($_GET['filt-fil'])) {
+    } else if (isset($_GET['filt-fil'])) {
         $fil = sanitize($_GET['filfil']);
         if (empty($fil)) {
-            return getAllClasse();
+            $classes = getAllClasse();
         } else {
-            return filterClasseByFiliere($fil);
+            $classes = filterClasseByFiliere($fil);
         }
-    }else{
-        return getAllClasse();
+    } else {
+        $classes = getAllClasse();
     }
+    if (isset($_GET['delete'])) {
+        $id = intval($_GET['delete']);
+        deleteClasse($id);
+        redirect('?page=etudiant&msg=success');
+    }
+    require_once __DIR__ . '/../view/classe/classe.php';
 }
 
 function listerClasse()
@@ -57,7 +65,7 @@ function newClasse()
         }
         $success = "";
         if (empty($error)) {
-            ajoutClasse($lib,$code,$id_niveau,$id_filiere);
+            ajoutClasse($lib, $code, $id_niveau, $id_filiere);
             $success = "Étudiant enregistré avec succès !";
         }
         return [$error, $success];
@@ -83,12 +91,12 @@ function SupprimerClasse()
 
 function editClasse()
 {
-        $id = intval($_GET['id']);
-        $classe = findOneClasse($id);
-        $filieres = tableFiliere();
-        $niveaux = tableNiveau();
-        $error = [];
-        $success = "";
+    $id = intval($_GET['id']);
+    $classe = findOneClasse($id);
+    $filieres = tableFiliere();
+    $niveaux = tableNiveau();
+    $error = [];
+    $success = "";
     if (isset($_POST['mod-cls'])) {
         $lib = sanitize($_POST['lib']);
         $code = sanitize($_POST['code']);
@@ -101,7 +109,7 @@ function editClasse()
         if (empty($niv)) $error['niv'] = 'Champ obligatoire';
         if (empty($fil)) $error['fil'] = 'Champ obligatoire';
         // Vérification des doublons
-        $existsClasse = verifUniqueUniverselUpdate($lib,'libelle','classe',$id);
+        $existsClasse = verifUniqueUniverselUpdate($lib, 'libelle', 'classe', $id);
         if ($existsClasse) {
             $error['lib'] = 'Nom déjà utilisé par une autre classe';
         }
@@ -116,7 +124,7 @@ function editClasse()
         }
         // -------- SI PAS D'ERREURS -> UPDATE --------
         if (empty($error)) {
-            updateClasse($id,$lib,$code,$id_niveau,$id_filiere);
+            updateClasse($id, $lib, $code, $id_niveau, $id_filiere);
             redirect('?page=classe&msg=update-success');
             exit;
         }

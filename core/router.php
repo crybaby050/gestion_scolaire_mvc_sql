@@ -17,9 +17,8 @@ switch ($page) {
         afficherDashboard();
         break;
     case 'add_etudiant':
-        $classes = tableClasse();
-        list($error, $success) = newEtudiant();
-        require_once __DIR__ . '/../view/etudiant/ajout.php';
+        
+        newEtudiant();
         break;
     case 'etudiant':
         SupprimerEtudiant();
@@ -41,11 +40,7 @@ switch ($page) {
         require_once __DIR__ . '/../view/classe/ajout.php';
         break;
     case 'classe':
-        SupprimerClasse();
-        $classes = afficheClasse();
-        $niveaux = tableNiveau();
-        $filieres = tableFiliere();
-        require_once __DIR__ . '/../view/classe/classe.php';
+        afficheClasse();
         break;
         case 'update_classe':
             editClasse();

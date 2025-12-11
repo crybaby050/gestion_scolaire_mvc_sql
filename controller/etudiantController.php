@@ -23,6 +23,7 @@ function listerEtudiants()
 }
 function newEtudiant()
 {
+    $classes = tableClasse();
     if (isset($_POST['add-etu'])) {
         $nom = sanitize($_POST['nom']);
         $pre = sanitize($_POST['pre']);
@@ -56,14 +57,13 @@ function newEtudiant()
         if (!$id_classe) {
             $error['cls'] = 'Classe invalide';
         }
-        $success = "";
         if (empty($error)) {
             ajoutEtudiant($nom, $pre, $id_classe, $mail, $tel, $ads);
-            $success = "Étudiant enregistré avec succès !";
-            return [$error, $success];
-            redirect('?page=add_etudiant&msg=add-succes');
+            // return [$error, $success];
+            redirect('?page=etudiant&msg=add-succes');
         }
     }
+    require_once __DIR__ . '/../view/etudiant/ajout.php';
 }
 function detailEtudiant()
 {
