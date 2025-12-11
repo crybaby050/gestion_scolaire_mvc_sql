@@ -1445,13 +1445,26 @@ body{
 }
 .filform form{
     width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 2%;
+
 }
-.filform form input{
+.filform form div{
+    /* border: 1px solid black; */
     height: 100%;
     width: 40%;
+    
+}
+.filform form div input{
+    width: 100%;
     padding: 10px 20px;
     border-radius: 50px;
     border: 1px solid #9d9d9d;
+}
+.filform form div p{
+    color: red;
+    margin: 1%;
 }
 .filform form button{
     height: 100%;
@@ -1534,8 +1547,8 @@ body{
 }
 .detail-fil{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     padding: 5px;
     margin-top: 15px;
     gap: 15px;
