@@ -18,7 +18,7 @@ require_once __DIR__ . '/../model/helperModel.php';
 <aside class="sidebar">
     <div class="sidebar-header">
         <div>
-            <img src="/../image/school logo.jpg" alt="">
+            <a href="?page=dashboard"><img src="/../image/school logo.jpg" alt=""></a>
         </div>
         <h2>ECOLE 221</h2>
     </div>
