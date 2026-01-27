@@ -60,7 +60,7 @@ function newEtudiant()
         if (empty($error)) {
             ajoutEtudiant($nom, $pre, $id_classe, $mail, $tel, $ads);
             // return [$error, $success];
-            redirect('?page=etudiant&msg=add-succes');
+            redirect('?page=etudiant&msg=add-success');
         }
     }
     require_once __DIR__ . '/../view/etudiant/ajout.php';
@@ -77,7 +77,7 @@ function SupprimerEtudiant()
     if (isset($_GET['delete'])) {
         $id = intval($_GET['delete']);
         deleteEtudiant($id);
-        redirect('?page=classe&msg=success');
+        redirect('?page=etudiant&msg=success');
     }
 }
 
