@@ -85,7 +85,7 @@ function SupprimerClasse()
     if (isset($_GET['delete'])) {
         $id = intval($_GET['delete']);
         deleteClasse($id);
-        redirect('?page=etudiant&msg=success');
+        redirect('?page=classe&msg=delete-success');
     }
 }
 
