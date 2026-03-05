@@ -8,6 +8,7 @@ function getIdClasseByLibelle($string)
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row ? $row['id'] : null;
 }
+
 function filterEtudiantByClasse($string)
 {
     $pdo = getPDO();
