@@ -1,16 +1,20 @@
 <?php
 function getPDO(){
-    try{
-        return new PDO(
-            "mysql:host=127.0.0.1;dbname=ecole;charset=utf8;port=3306",
-            "root",
-            "",
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]
+    try {
+        $pdo = new PDO(
+            "mysql:host=mysql-digischool.alwaysdata.net;dbname=digischool_ecole221;charset=utf8;port=3306",
+            "digischool",
+            "seydinathiam05"  // Remplacez par votre vrai mot de passe
         );
-    }catch(PDOException $e){
-        die("Erreur PDO :" . $e->getMessage());
+        
+        // Configuration des options PDO
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        
+        return $pdo;
+        
+    } catch(PDOException $e){
+        die("Erreur PDO : ". $e->getMessage());
     }
 }
+?>
