@@ -1148,11 +1148,32 @@ body{
     .classe-switch-btn,
     .switchetu-btn { margin-left: 0; display: block; text-align: center; width: 100%; border-radius: 10px; }
 
-    /* Tables scrollables */
+    /* Tables cachées par défaut sur mobile */
     .table-view,
-    .classe-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-    #toggleView:checked ~ .table-view { display: block; }
-    #classeToggleView:checked ~ .classe-table { display: block; }
+    .classe-table { display: none; }
+
+    /* Quand toggle activé : cacher cards, afficher table scrollable */
+    #toggleView:checked ~ .card-container { display: none; }
+    #toggleView:checked ~ .table-view {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    #classeToggleView:checked ~ .classe-card-container { display: none; }
+    #classeToggleView:checked ~ .classe-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    #switchetu:checked ~ .cls-assoc .card-container { display: none; }
+    #switchetu:checked ~ .cls-assoc .table-view {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
 
     /* Détail étudiant / classe */
     .etu-details-wrapper,
