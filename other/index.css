@@ -6,28 +6,28 @@
 body{
     background: #F6F9FC;
 }
-/* Css du side bar et du header */
+
+/* =====================
+   SIDEBAR & HEADER
+   ===================== */
 #toggle {
     display: none;
 }
 
-/* ---- SIDEBAR ---- */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 220px;
-    height: 100vh; /* TRÈS IMPORTANT : prend toute la hauteur */
-    /* background: #a6a5a50b; */
+    height: 100vh;
     background: #f6f6f6;
-    padding-top: 60px; /* espace sous le header */
+    padding-top: 60px;
     transition: 0.3s;
     overflow: hidden;
     color: black;
     z-index: 10;
 }
 
-/* Header dans la sidebar */
 .sidebar-header {
     position: absolute;
     top: 0;
@@ -38,7 +38,6 @@ body{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* padding-left: 20px; */
     margin: 0;
 }
 .sidebar-header h2{
@@ -57,14 +56,14 @@ body{
     width: 90%;
     border-radius: 50px;
 }
-/* ---- HEADER ---- */
+
 .header {
     position: fixed;
     top: 0;
-    left: 220px; /* commence à droite du sidebar */
+    left: 220px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.445); /* fond semi-transparent */
-    backdrop-filter: blur(10px);         /* flou du contenu derrière */
+    background: rgba(255, 255, 255, 0.445);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     width: calc(100% - 220px);
     color: #2F3A4A;
@@ -82,7 +81,6 @@ body{
     justify-content: space-between;
 }
 .profil{
-    /* border: 1px solid #DDE5EE; */
     height: 100%;
     width: 30%;
     display: flex;
@@ -104,7 +102,6 @@ body{
     font-size: 26px;
     margin-right: 20px;
     cursor: pointer;
-    /* border: 1px solid #DDE5EE; */
 }
 
 /* ---- LINKS ---- */
@@ -120,15 +117,11 @@ body{
     text-decoration: none;
     padding: 12px 20px;
     position: relative;
-    display: block;
-    transition: background 0.25s ease, padding-left 0.25s ease;
-}
-.sidebar ul li a {
     display: flex;
     align-items: center;
     gap: 12px;
+    transition: background 0.25s ease, padding-left 0.25s ease;
 }
-/* --- Icônes style thème bleu --- */
 .sidebar ul li a i {
     font-size: 18px;
     width: 25px;
@@ -147,13 +140,6 @@ body{
 .sidebar ul li a:hover i {
     color: #0056d6;
 }
-/* .sidebar ul li a.active {
-    background: #EAF3FF;
-    border-left: 4px solid #007bff;
-    color: #007bff;
-    font-weight: 600;
-} */
-
 .sidebar ul li a:hover::before {
     content: "";
     position: absolute;
@@ -165,22 +151,11 @@ body{
     border-radius: 0 4px 4px 0;
 }
 
-.sidebar ul li.logout a {
-    color: #d9534f; /* rouge */
-}
+.sidebar ul li.logout a { color: #d9534f; }
+.sidebar ul li.logout a i { color: #d9534f; }
+.sidebar ul li.logout a:hover { background: #fbe9e9; color: #b52b27; }
+.sidebar ul li.logout a:hover i { color: #b52b27; }
 
-.sidebar ul li.logout a i {
-    color: #d9534f;
-}
-
-.sidebar ul li.logout a:hover {
-    background: #fbe9e9;
-    color: #b52b27;
-}
-
-.sidebar ul li.logout a:hover i {
-    color: #b52b27;
-}
 /* ---- CONTENT ---- */
 .content {
     margin-left: 220px;
@@ -188,72 +163,28 @@ body{
     margin-top: 60px;
     background: #F6F9FC;
     transition: 0.3s;
-    /* border: 1px solid blue; */
 }
 
 /* ---- MODE RÉTRACTÉ ---- */
-#toggle:checked ~ .sidebar {
-    width: 70px;
-}
-
-/* Header se décale aussi */
-#toggle:checked ~ .header {
-    left: 70px;
-    width: calc(100% - 70px);
-}
-
-/* Content se décale */
-#toggle:checked ~ .content {
-    margin-left: 70px;
-}
-
-/* Cacher texte du sidebar */
-/* #toggle:checked ~ .sidebar ul li a {
-    text-indent: -9999px;
-} */
-#toggle:checked ~ .sidebar ul{
-    list-style: none;
-}
-#toggle:checked ~ .sidebar ul li{
-    list-style: none;
-}
-#toggle:checked ~ .sidebar ul li a {
-    justify-content: center;
-}
-#toggle:checked ~ .sidebar ul li a::before {
-    text-indent: 0;
-    margin-left: 25px;
-    color: white;
-}
-#toggle:checked ~ .sidebar ul li a span {
-    display: none;
-}
-/* #toggle:checked ~ .sidebar ul li a i {
-    margin: 0 auto;
-    display: block;
-    font-size: 22px;
-} */
-#toggle:checked ~ .sidebar ul li a i {
-    font-size: 18px;
-    margin: 0;
-}
-
-/* Cacher titre du sidebar */
-#toggle:checked ~ .sidebar .sidebar-header h2 {
-    opacity: 0;
-}
-#toggle:checked ~ .sidebar .sidebar-header img {
-    height: 70%;
-    width: 200%;
-    padding-top: 5%;
-}
-#toggle:checked ~ .sidebar ul li.logout a i {
-    color: #d9534f !important;
-}
+#toggle:checked ~ .sidebar { width: 70px; }
+#toggle:checked ~ .header { left: 70px; width: calc(100% - 70px); }
+#toggle:checked ~ .content { margin-left: 70px; }
+#toggle:checked ~ .sidebar ul li a { justify-content: center; }
+#toggle:checked ~ .sidebar ul li a span { display: none; }
+#toggle:checked ~ .sidebar ul li a i { font-size: 18px; margin: 0; }
+#toggle:checked ~ .sidebar .sidebar-header h2 { opacity: 0; }
+#toggle:checked ~ .sidebar .sidebar-header img { height: 70%; width: 200%; padding-top: 5%; }
+#toggle:checked ~ .sidebar ul li.logout a i { color: #d9534f !important; }
+#toggle:checked ~ .add-container { margin-left: 70px; }
+#toggle:checked ~ .etu-details-wrapper { margin-left: 70px; }
+#toggle:checked ~ .classe-content { margin-left: 70px; }
+#toggle:checked ~ .cla-details-wrapper { margin-left: 70px; }
+#toggle:checked ~ .fil-content { margin-left: 70px; }
 
 
-
-/* configuration du css du dashboard */
+/* =====================
+   DASHBOARD CARDS
+   ===================== */
 .card {
     width: 100%;
     margin-top: 2%;
@@ -261,9 +192,9 @@ body{
     flex-wrap: wrap;
     padding: 0;
     justify-content: space-between;
+    gap: 15px;
 }
 
-/* ----- CARDS MODERNES ----- */
 .l-card {
     position: relative;
     border-radius: 14px;
@@ -272,27 +203,18 @@ body{
     width: 23%;
     border: 1px solid #e6e6e6;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     opacity: 0;
     transform: translateY(10px);
     animation: cardFadeIn 1s ease forwards;
-
     padding: 20px;
     overflow: hidden;
 }
-
 .l-card:hover {
     transform: translateY(-6px);
     box-shadow: 6px 6px 12px rgba(0,0,0,0.12);
     border-color: #d8e6ff;
 }
-
-/* ----- BULLE PASTEL DERRIÈRE ----- */
 .l-card::before {
     content: "";
     position: absolute;
@@ -303,8 +225,6 @@ body{
     border-radius: 50%;
     opacity: 0.45;
 }
-
-/* ----- CERCLE AVEC ICÔNE ----- */
 .icon-circle {
     position: absolute;
     bottom: 15px;
@@ -315,62 +235,28 @@ body{
     font-size: 20px;
 }
 
-/* ======== COULEURS POUR CHAQUE CARD ======== */
-
-/* BLEU */
 .color-blue::before { background: #e9f4ff; }
 .color-blue .icon-circle { background: #4facfe; }
-
-/* VERT */
 .color-green::before { background: #eafff3; }
 .color-green .icon-circle { background: #4ade80; }
-
-/* ORANGE */
 .color-orange::before { background: #fff3e6; }
 .color-orange .icon-circle { background: #fb923c; }
-
-/* ROUGE */
 .color-red::before { background: #ffecec; }
 .color-red .icon-circle { background: #ef4444; }
 
-/* ----- ANIMATION D'APPARITION ----- */
 @keyframes cardFadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateY(0px); }
 }
-
-/* ----- HOVER AVEC COULEUR PERSONNALISÉE ----- */
-
-/* BLEU */
-.color-blue:hover {
-    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.35);
-}
-
-/* VERT */
-.color-green:hover {
-    box-shadow: 0 8px 20px rgba(74, 222, 128, 0.35);
-}
-
-/* ORANGE */
-.color-orange:hover {
-    box-shadow: 0 8px 20px rgba(251, 146, 60, 0.35);
-}
-
-/* ROUGE */
-.color-red:hover {
-    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
-}
+.color-blue:hover { box-shadow: 0 8px 20px rgba(79, 172, 254, 0.35); }
+.color-green:hover { box-shadow: 0 8px 20px rgba(74, 222, 128, 0.35); }
+.color-orange:hover { box-shadow: 0 8px 20px rgba(251, 146, 60, 0.35); }
+.color-red:hover { box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35); }
 
 
-
-
-/* configuration de la page de liste des etudiants */
+/* =====================
+   PAGE ÉTUDIANTS
+   ===================== */
 .etu-h{
     width: 100%;
     background: white;
@@ -381,14 +267,12 @@ body{
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    transform: translateY(0);
     animation: cardFadeIn 1s ease forwards;
 }
 .etu-h:hover {
-    transform: translateY(-12px) scale(1.02); /* Légère élévation + zoom */
-    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25); /* Ombre plus profonde */
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25);
 }
-
 
 .etu-fil{
     width: 100%;
@@ -397,6 +281,8 @@ body{
     justify-content: space-between;
     margin-top: 2%;
     margin-bottom: 2%;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .etu-fil form{
     height: 8vh;
@@ -434,7 +320,6 @@ body{
     border-radius: 50px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
     color: white;
-    border-radius: 50px;
     box-shadow: 0 4px 0 #0056b3;
     transition: 0.1s;
 }
@@ -454,7 +339,6 @@ body{
     background: linear-gradient(to bottom, #4facfe, #007bff);
     box-shadow: 0 4px 0 #0056b3;
     color: white;
-    border-radius: 50px;
     transition: 0.1s;
 }
 .add-etu:active {
@@ -462,7 +346,6 @@ body{
     transform: translateY(2px);
 }
 
-/* Bouton */
 .switch-btn {
     display: inline-block;
     background: linear-gradient(to bottom, #4facfe, #007bff);
@@ -470,42 +353,16 @@ body{
     border-radius: 50px;
     color: #fff;
     cursor: pointer;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: 40%;
+    margin: 20px 0 20px 40%;
     box-shadow: 0 4px 0 #0056b3;
     transition: 0.1s;
 }
-
 .switch-btn:active {
     box-shadow: 0 2px 0 #0056b3;
     transform: translateY(2px);
 }
 
-/* Cacher le tableau au début */
-.table-view {
-    display: none;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-view th, .table-view td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-/* Quand checkbox activé → on cache cardView et affiche tableau */
-#toggleView:checked ~ .card-container {
-    display: none;
-}
-
-#toggleView:checked ~ .table-view {
-    display: table;
-}
-
-/* ----- STYLES DES CARDS ----- */
-
+/* ---- CARDS ÉTUDIANTS ---- */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -523,12 +380,14 @@ body{
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
     transition: transform .25s, box-shadow .25s;
     position: relative;
-    /* 3 par ligne – pas de débordement */
     flex: 0 0 calc(33.333% - 20px);
     box-sizing: border-box;
 }
-
-
+.student-card:hover {
+    transform: translateY(0px) scale(1.00);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+.student-card p { margin: 6px 0; }
 
 .card-actions {
     position: absolute;
@@ -537,7 +396,6 @@ body{
     display: flex;
     gap: 8px;
 }
-
 .card-actions a {
     width: 32px;
     height: 32px;
@@ -551,45 +409,14 @@ body{
     transition: 0.2s;
     box-shadow: 0 4px 0 rgba(0,0,0,0.2);
 }
-.card-actions a:active {
-    transform: translateY(3px);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-}
+.card-actions a:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.2); }
 
-.btn-view {
-    background: linear-gradient(to bottom, #4facfe, #007bff);
-    box-shadow: 0 4px 0 #0056b3;
-}
-.btn-view:hover {
-    background: linear-gradient(to bottom, #6ec0ff, #1b8cff);
-}
-
-.btn-edit {
-    background: linear-gradient(to bottom, #7dff8a, #28a745);
-    box-shadow: 0 4px 0 #1e7e34;
-}
-.btn-edit:hover {
-    background: linear-gradient(to bottom, #98ff9f, #31c152);
-}
-
-.btn-delete {
-    background: linear-gradient(to bottom, #ff7f7f, #dc3545);
-    box-shadow: 0 4px 0 #a71d2a;
-}
-.btn-delete:hover {
-    background: linear-gradient(to bottom, #ff9a9a, #e04151);
-}
-
-.student-card p {
-    margin: 6px 0;
-}
-
-
-
-.student-card:hover {
-    transform: translateY(0px) scale(1.00);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
+.btn-view { background: linear-gradient(to bottom, #4facfe, #007bff); box-shadow: 0 4px 0 #0056b3; }
+.btn-view:hover { background: linear-gradient(to bottom, #6ec0ff, #1b8cff); }
+.btn-edit { background: linear-gradient(to bottom, #7dff8a, #28a745); box-shadow: 0 4px 0 #1e7e34; }
+.btn-edit:hover { background: linear-gradient(to bottom, #98ff9f, #31c152); }
+.btn-delete { background: linear-gradient(to bottom, #ff7f7f, #dc3545); box-shadow: 0 4px 0 #a71d2a; }
+.btn-delete:hover { background: linear-gradient(to bottom, #ff9a9a, #e04151); }
 
 .card-header {
     display: flex;
@@ -597,7 +424,6 @@ body{
     align-items: flex-start;
     gap: 5px;
 }
-
 .matricule {
     background: #007bffcc;
     color: white;
@@ -607,14 +433,9 @@ body{
     font-weight: bold;
 }
 
-.student-card p {
-    margin: 5px 0;
-}
-
-
-/* ---------- TABLE STYLÉE ---------- */
-
+/* ---- TABLE ---- */
 .table-view {
+    display: none;
     width: 100%;
     border-collapse: collapse;
     background: #ffffff;
@@ -623,13 +444,10 @@ body{
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     animation: fadeIn 0.4s ease;
 }
-
-/* Animation d'entrée */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(10px);}
     to {opacity: 1; transform: translateY(0);}
 }
-
 .table-view th {
     background: #007bff;
     color: white;
@@ -639,58 +457,39 @@ body{
     letter-spacing: 0.5px;
     border: none;
 }
-
 .table-view td {
     padding: 12px 14px;
     font-size: 14px;
     border-bottom: 1px solid #e5e5e5;
     border-right: none;
     border-left: none;
+    text-align: center;
 }
-
-/* Séparation élégante */
-.table-view tr:not(:last-child) td {
-    border-bottom: 1px solid #efefef;
-}
-
-/* Survol des lignes */
-.table-view tr:hover td {
-    background: #f6f9ff;
-    transition: 0.2s;
-}
-
-
+.table-view tr:not(:last-child) td { border-bottom: 1px solid #efefef; }
 .table-view tr {
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-     border-right: none;     /* enlève bordures verticales */
+    border-right: none;
     border-left: none;
 }
 .table-view tr:hover {
     transform: translateY(-6px);
     background: #f6f9ff;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    position: relative; /* éviter que l’ombre soit coupée */
+    position: relative;
     z-index: 2;
 }
+.table-view tr:hover td { background: #f6f9ff; transition: 0.2s; }
+.table-view td:first-child { font-weight: 600; }
+.table-view tr:last-child td { border-bottom: none; }
 
-/* Première colonne plus forte */
-.table-view td:first-child {
-    font-weight: 600;
-}
-
-/* Coins arrondis si dernier élément */
-.table-view tr:last-child td {
-    border-bottom: none;
-}
-
+#toggleView:checked ~ .card-container { display: none; }
+#toggleView:checked ~ .table-view { display: table; }
 
 .acte-btns {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
-
-/* Base des boutons */
 .acte-btns a {
     padding: 8px 10px;
     border-radius: 6px;
@@ -698,38 +497,17 @@ body{
     font-size: 14px;
     transition: 0.2s;
 }
-
-/* Voir détails */
-.table-view-btn {
-    background: #007bff;
-}
-.table-view-btn:hover {
-    background: #0056b3;
-}
-
-/* Modifier */
-.table-edit-btn {
-    background: #28a745;
-}
-.table-edit-btn:hover {
-    background: #1e7e34;
-}
-
-/* Supprimer */
-.table-delete-btn {
-    background: #dc3545;
-}
-.table-delete-btn:hover {
-    background: #a71d2a;
-}
+.table-view-btn { background: #007bff; }
+.table-view-btn:hover { background: #0056b3; }
+.table-edit-btn { background: #28a745; }
+.table-edit-btn:hover { background: #1e7e34; }
+.table-delete-btn { background: #dc3545; }
+.table-delete-btn:hover { background: #a71d2a; }
 
 
-
-
-
-/* ajout des etudiants */
-
-
+/* =====================
+   FORMULAIRE AJOUT / EDIT
+   ===================== */
 .add-container{
     margin-left: 220px;
     margin-top: 60px;
@@ -739,14 +517,10 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
-#toggle:checked ~ .add-container {
-    margin-left: 70px;
-}
 .add-container h2{
     width: 100%;
     margin: 30px;
 }
-
 .form-card{
     background: white;
     padding: 30px;
@@ -755,13 +529,11 @@ body{
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
-
 .form-card label{
     font-weight: 600;
     margin-top: 15px;
-    display:block;
+    display: block;
 }
-
 .form-card input,
 .form-card select{
     width: 100%;
@@ -782,7 +554,6 @@ body{
     transform: scale(1.02);
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
-
 .btns{
     display: flex;
     justify-content: flex-end;
@@ -790,7 +561,6 @@ body{
     margin-right: 30%;
     gap: 15px;
 }
-
 .btns .cancel{
     background: linear-gradient(to bottom, #ff7676, #ff0000);
     box-shadow: 0 4px 0 #b30000;
@@ -800,7 +570,6 @@ body{
     border-radius: 10px;
     border: none;
 }
-
 .btns .save{
     background: linear-gradient(to bottom, #4facfe, #007bff);
     box-shadow: 0 4px 0 #0056b3;
@@ -810,26 +579,16 @@ body{
     border: none;
     transition: 0.15s ease;
 }
-.btns .save:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-}
-.btns .cancel:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-}
-.error {
-    color: #dc2626;
-    font-size: 13px;
-    margin-top: 4px;
-    /* display: none; */
-}
+.btns .save:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+.btns .cancel:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+.error { color: #dc2626; font-size: 13px; margin-top: 4px; }
+
 .success-popup {
     position: fixed;
     top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    background: #16a34a; /* Vert */
+    background: #16a34a;
     color: white;
     padding: 12px 20px;
     border-radius: 6px;
@@ -838,21 +597,13 @@ body{
     animation: slideDown 0.6s ease forwards, fadeOut 1s ease 3s forwards;
     z-index: 9999;
 }
-
-@keyframes slideDown {
-    to { top: 20px; }
-}
-
-@keyframes fadeOut {
-    to { opacity: 0; }
-}
+@keyframes slideDown { to { top: 20px; } }
+@keyframes fadeOut { to { opacity: 0; } }
 
 
-
-
-
-/* detaille des etudiants */
-/* Wrapper général */
+/* =====================
+   DÉTAIL ÉTUDIANT
+   ===================== */
 .etu-details-wrapper {
     display: flex;
     flex-direction: column;
@@ -862,12 +613,6 @@ body{
     padding: 20px;
     background: #F6F9FC;
 }
-
-#toggle:checked ~ .etu-details-wrapper {
-    margin-left: 70px;
-}
-
-/* Grande bannière décorative */
 .banner {
     width: 100%;
     height: 180px;
@@ -875,8 +620,6 @@ body{
     border-radius: 0 0 40px 40px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
-
-/* Carte principale */
 .etu-details-card {
     background: #fff;
     width: 80%;
@@ -885,35 +628,13 @@ body{
     padding: 40px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-
-/* Image décorative */
-.etu-details-decor {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
+.etu-details-decor { width: 100%; text-align: center; margin-bottom: 30px; }
 .etu-details-img {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    opacity: 0.95;
-    border-radius: 50%;
+    width: 140px; height: 140px;
+    object-fit: contain; opacity: 0.95; border-radius: 50%;
 }
-
-/* Nom + Matricule */
-.etu-details-header {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.etu-details-name {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 0;
-    color: #1f2937;
-}
-
+.etu-details-header { text-align: center; margin-bottom: 35px; }
+.etu-details-name { font-size: 28px; font-weight: bold; margin: 0; color: #1f2937; }
 .etu-details-id {
     display: inline-block;
     margin-top: 10px;
@@ -923,33 +644,20 @@ body{
     border-radius: 30px;
     font-size: 15px;
 }
-
-/* Grille des informations */
 .etu-details-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
-
-.etu-details-group h3 {
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #2563eb;
-}
-
-.etu-details-group p {
-    font-size: 17px;
-    margin: 10px 0;
-}
-
-/* Boutons */
+.etu-details-group h3 { margin-bottom: 15px; font-size: 20px; color: #2563eb; }
+.etu-details-group p { font-size: 17px; margin: 10px 0; }
 .etu-details-actions {
     margin-top: 40px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
-
 .btn {
     padding: 12px 25px;
     font-size: 16px;
@@ -958,38 +666,19 @@ body{
     color: white;
     transition: 0.2s ease;
 }
+.btn.return { background: #6b7280; }
+.btn.return:hover { background: #4b5563; }
+.btn.edit { background: #2563eb; }
+.btn.edit:hover { background: #1d4ed8; }
+.btn.delete { background: #dc2626; }
+.btn.delete:hover { background: #b91c1c; }
 
-/* Retour */
-.btn.return {
-    background: #6b7280;
-}
-.btn.return:hover {
-    background: #4b5563;
-}
-
-/* Modifier */
-.btn.edit {
-    background: #2563eb;
-}
-.btn.edit:hover {
-    background: #1d4ed8;
-}
-
-/* Supprimer */
-.btn.delete {
-    background: #dc2626;
-}
-.btn.delete:hover {
-    background: #b91c1c;
-}
-
-/* popup de supression */
 .alert-success-top {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #28a745; /* vert */
+    background-color: #28a745;
     color: white;
     padding: 12px 25px;
     border-radius: 6px;
@@ -997,24 +686,8 @@ body{
     font-weight: 500;
     z-index: 9999;
     opacity: 0.95;
-    animation: slideDown 0.5s ease;
-}
-
-/* Animation pour apparaître */
-@keyframes slideDown {
-    0% { transform: translate(-50%, -50px); opacity: 0; }
-    100% { transform: translate(-50%, 0); opacity: 0.95; }
-}
-
-/* Optionnel : disparition automatique */
-.alert-success-top {
     animation: slideDown 0.5s ease, fadeOut 2s 2s forwards;
 }
-
-@keyframes fadeOut {
-    to { opacity: 0; }
-}
-
 .popup-success {
     position: fixed;
     top: 15px;
@@ -1028,16 +701,12 @@ body{
     animation: fadeout 4s forwards;
     z-index: 9999;
 }
-
-@keyframes fadeout {
-    0%   { opacity: 1; }
-    70%  { opacity: 1; }
-    100% { opacity: 0; }
-}
+@keyframes fadeout { 0% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; } }
 
 
-/* partie du css pour la liste des classes */
-/* Container principal */
+/* =====================
+   CLASSES
+   ===================== */
 .classe-content {
     margin-left: 220px;
     padding: 30px;
@@ -1045,12 +714,6 @@ body{
     background: #F6F9FC;
     transition: 0.3s;
 }
-
-#toggle:checked ~ .classe-content {
-    margin-left: 70px;
-}
-
-/* ----- HEADER ----- */
 .classe-header {
     width: 100%;
     background: white;
@@ -1060,566 +723,473 @@ body{
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(87, 87, 87, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    transform: translateY(0);
     animation: cardFadeIn 1s ease forwards;
     margin-bottom: 20px;
 }
 .classe-header:hover {
-    transform: translateY(-12px) scale(1.02); /* Légère élévation + zoom */
-    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25); /* Ombre plus profonde */
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(65, 65, 65, 0.25);
 }
-
-.classe-header h1 {
-    margin-bottom: 5px;
-}
-
+.classe-header h1 { margin-bottom: 5px; }
 .classe-filters {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-
-/* Formulaires filtres */
 .classe-filter-form {
     width: 30%;
     height: 8vh;
     display: flex;
     gap: 10px;
 }
-
-.classe-filter-form div {
-    width: 70%;
-    height: 100%;
-}
-
-.classe-filter-form input, 
+.classe-filter-form div { width: 70%; height: 100%; }
+.classe-filter-form input,
 .classe-filter-form select{
-    width: 100%;
-    height: 80%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding-left: 10px;
-    font-size: 15px;
-    outline: none;
-    transition: .25s;
+    width: 100%; height: 80%;
+    border: 1px solid #ccc; border-radius: 8px;
+    padding-left: 10px; font-size: 15px; outline: none; transition: .25s;
 }
-
-.classe-filter-form input:focus, 
+.classe-filter-form input:focus,
 .classe-filter-form select:focus{
-    border-color: #1e90ff;
-    box-shadow: 0 0 4px rgba(30,144,255,0.4);
+    border-color: #1e90ff; box-shadow: 0 0 4px rgba(30,144,255,0.4);
 }
-
 .classe-filter-form button {
-    height: 80%;
-    width: 35%;
-    font-size: 90%;
-    padding: 2%;
-    border: none;
-    border-radius: 50px;
+    height: 80%; width: 35%; font-size: 90%; padding: 2%;
+    border: none; border-radius: 50px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
-    color: white;
-    box-shadow: 0 4px 0 #0056b3;
-    font-weight: bold;
-    transition: 0.1s;
+    color: white; box-shadow: 0 4px 0 #0056b3; font-weight: bold; transition: 0.1s;
 }
-
-.classe-filter-form button:active {
-    box-shadow: 0 2px 0 #0056b3;
-    transform: translateY(2px);
-}
-
-/* Ajouter une classe */
-.classe-filters a{
-    width: 30%;
-    text-align: end;
-    height: 8vh;
-}
+.classe-filter-form button:active { box-shadow: 0 2px 0 #0056b3; transform: translateY(2px); }
+.classe-filters a { width: 30%; text-align: end; height: 8vh; }
 .add-classe-btn {
-    height: 80%;
-    width: 70%;
-    border-radius: 50px;
-    border: none;
+    height: 80%; width: 70%; border-radius: 50px; border: none;
     background: linear-gradient(to bottom, #4facfe, #007bff);
-    box-shadow: 0 4px 0 #0056b3;
-    color: white;
-    font-weight: bold;
-    font-size: 100%;
-    transition: .1s;
+    box-shadow: 0 4px 0 #0056b3; color: white; font-weight: bold; font-size: 100%; transition: .1s;
 }
+.add-classe-btn:active { transform: translateY(2px); }
 
-.add-classe-btn:active {
-    transform: translateY(2px);
-}
-
-/* ----- SWITCH CARD / TABLE ----- */
 .classe-switch-btn {
     display: inline-block;
     background: linear-gradient(to bottom, #4facfe, #007bff);
-    padding: 10px 20px;
-    border-radius: 50px;
-    color: white;
-    margin: 20px 0;
-    margin-left: 40%;
-    cursor: pointer;
-    box-shadow: 0 4px 0 #0056b3;
-    transition: .1s;
+    padding: 10px 20px; border-radius: 50px; color: white;
+    margin: 20px 0 20px 40%; cursor: pointer;
+    box-shadow: 0 4px 0 #0056b3; transition: .1s;
 }
+.classe-switch-btn:active { transform: translateY(2px); }
 
-.classe-switch-btn:active {
-    transform: translateY(2px);
-}
-
-/* Masquer tableau au début */
 .classe-table { display: none; }
+#classeToggleView:checked ~ .classe-card-container { display: none; }
+#classeToggleView:checked ~ .classe-table { display: table; }
 
-/* Toggle */
-#classeToggleView:checked ~ .classe-card-container {
-    display: none;
-}
-
-#classeToggleView:checked ~ .classe-table {
-    display: table;
-}
-
-/* ----- CARDS ----- */
 .classe-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;
 }
-
 .classe-card {
-    flex: 0 0 calc(33.33% - 20px);
+    flex: 0 0 calc(33.333% - 20px);
     background: rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 25px;
+    border-radius: 12px; padding: 25px;
     border: 1px solid rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
     transition: transform .25s, box-shadow .25s;
-    position: relative;
-
-    /* 3 par ligne – pas de débordement */
-    flex: 0 0 calc(33.333% - 20px);
-    box-sizing: border-box;
+    position: relative; box-sizing: border-box;
 }
-
-.classe-card:hover {
-    transform: translateY(0px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-/* Actions */
+.classe-card:hover { transform: translateY(0px) scale(1.05); box-shadow: 0 15px 35px rgba(0,0,0,0.25); }
 .classe-card-actions {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 8px;
+    position: absolute; top: 10px; right: 10px; display: flex; gap: 8px;
 }
-
 .classe-card-actions a {
-    width: 32px;
-    height: 32px;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
-    transition: .2s;
+    width: 32px; height: 32px; color: white; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 14px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); transition: .2s;
 }
-.classe-card-actions a:active {
-    transform: translateY(3px);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-}
-
+.classe-card-actions a:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.2); }
 .c-view { background: linear-gradient(to bottom, #4facfe,#007bff); }
 .c-edit { background: linear-gradient(to bottom,#7dff8a,#28a745); }
 .c-delete { background: linear-gradient(to bottom,#ff7f7f,#dc3545); }
-
-/* Header */
-.classe-card-header {
-    margin-bottom: 15px;
-}
-
-.classe-card-header h3 {
-    margin-bottom: 5px;
-}
-
-.classe-code {
-    background: #007bffcc;
-    padding: 4px 20px;
-    border-radius: 50px;
-    color: white;
-}
-
-/* ----- TABLEAU ----- */
+.classe-card-header { margin-bottom: 15px; }
+.classe-card-header h3 { margin-bottom: 5px; }
+.classe-code { background: #007bffcc; padding: 4px 20px; border-radius: 50px; color: white; }
 
 .classe-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    margin-top: 20px;
+    width: 100%; border-collapse: collapse; background: white;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12); margin-top: 20px;
     animation: fadeIn 0.4s ease;
 }
-/* Animation d'entrée */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
 .classe-table th {
-    background: #007bff;
-    color: white;
-    padding: 14px;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border: none;
+    background: #007bff; color: white; padding: 14px;
+    font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; border: none;
 }
-
 .classe-table td {
-    padding: 12px 14px;
-    font-size: 14px;
+    padding: 12px 14px; font-size: 14px;
     border-bottom: 1px solid #e5e5e5;
-    border-right: none;
-    border-left: none;
-    text-align: center;
+    border-right: none; border-left: none; text-align: center;
 }
-/* Séparation élégante */
-.classe-table tr:not(:last-child) td {
-    border-bottom: 1px solid #efefef;
-}
+.classe-table tr:not(:last-child) td { border-bottom: 1px solid #efefef; }
 .classe-table tr {
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-     border-right: none;     /* enlève bordures verticales */
-    border-left: none;
+    border-right: none; border-left: none;
 }
 .classe-table tr:hover {
-    transform: translateY(-6px);
-    background: #f6f9ff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    position: relative; /* éviter que l’ombre soit coupée */
-    z-index: 2;
+    transform: translateY(-6px); background: #f6f9ff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); position: relative; z-index: 2;
 }
-.classe-table tr:last-child td {
-    border-bottom: none;
-}
-
-.classe-table tr:hover td {
-    background: #f6f9ff;
-    transition: .2s;
-}
-
-.classe-table-actions a {
-    padding: 8px 10px;
-    border-radius: 6px;
-    color: white;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
+.classe-table tr:last-child td { border-bottom: none; }
+.classe-table tr:hover td { background: #f6f9ff; transition: .2s; }
+.classe-table-actions a { padding: 8px 10px; border-radius: 6px; color: white; font-size: 14px; transition: 0.2s; }
 .ct-view { background: #007bff; }
 .ct-edit { background: #28a745; }
 .ct-delete { background: #dc3545; }
 
 
-/* detail des classes */
-/* Wrapper général */
+/* =====================
+   DÉTAIL CLASSE
+   ===================== */
 .cla-details-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 220px;
-    margin-top: 60px;
-    padding: 20px;
-    background: #F6F9FC;
+    display: flex; flex-direction: column; align-items: center;
+    margin-left: 220px; margin-top: 60px; padding: 20px; background: #F6F9FC;
 }
-
-#toggle:checked ~ .cla-details-wrapper {
-    margin-left: 70px;
-}
-
 .banner-classe {
-    width: 100%;
-    height: 180px;
+    width: 100%; height: 180px;
     background: linear-gradient(135deg, #25eb39, #60fa98);
-    border-radius: 0 0 40px 40px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border-radius: 0 0 40px 40px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
-.cla-detail-card{
-    background: #fff;
-    width: 80%;
-    margin-top: -80px;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+.cla-detail-card {
+    background: #fff; width: 80%; margin-top: -80px;
+    border-radius: 20px; padding: 40px; box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-.cla-details-decor {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 30px;
+.cla-details-decor { width: 100%; text-align: center; margin-bottom: 30px; }
+.inf-cls-head { width: 100%; text-align: center; }
+.cls-assoc {
+    background-color: white; margin-top: 30px; width: 100%;
+    padding: 40px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-.inf-cls-head{
-    width: 100%;
-    text-align: center;
-}
-.cls-assoc{
-    background-color: white;
-    margin-top: 30px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-.cls-assoc h3{
-    margin-bottom: 10px;
-}
-/* Bouton switch etudiant associer a une classe */
+.cls-assoc h3 { margin-bottom: 10px; }
 .switchetu-btn {
-    /* display: inline-block; */
     background: linear-gradient(to bottom, #60fa98, #25eb39);
-    padding: 10px 20px;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    box-shadow: 0 4px 0 #00b351;
-    transition: 0.1s;
+    padding: 10px 20px; border-radius: 50px; color: #fff;
+    cursor: pointer; margin: 20px 0; box-shadow: 0 4px 0 #00b351; transition: 0.1s;
 }
-
-.switchetu-btn:active {
-    box-shadow: 0 2px 0 #00b318;
-    transform: translateY(2px);
-}
-/* Quand checkbox activé → on cache cardView et affiche tableau */
-#switchetu:checked ~ .cls-assoc .card-container {
-    display: none;
-}
-
-#switchetu:checked ~ .cls-assoc .table-view {
-    display: table;
-}
+.switchetu-btn:active { box-shadow: 0 2px 0 #00b318; transform: translateY(2px); }
+#switchetu:checked ~ .cls-assoc .card-container { display: none; }
+#switchetu:checked ~ .cls-assoc .table-view { display: table; }
 .line {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    border-bottom: 1px dotted #000;
-    padding-bottom: 4px;
-    margin: 8px 0;
+    display: flex; justify-content: space-between; font-size: 18px;
+    border-bottom: 1px dotted #000; padding-bottom: 4px; margin: 8px 0;
 }
 
 
-/* filiere */
-/* Wrapper général */
+/* =====================
+   FILIÈRE & NIVEAU
+   ===================== */
 .fil-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 220px;
-    margin-top: 60px;
-    padding: 20px;
-    background: #F6F9FC;
+    display: flex; flex-direction: column; align-items: center;
+    margin-left: 220px; margin-top: 60px; padding: 20px; background: #F6F9FC;
 }
-
-#toggle:checked ~ .fil-content {
-    margin-left: 70px;
-}
-.filajout{
-    width: 100%;
-}
-.filajout h3{
-    margin-bottom: 10px;
-}
-.filform{
-    width: 100%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-.filform form{
-    width: 100%;
-    /* border: 1px solid black; */
-    display: flex;
-    gap: 2%;
-
-}
-.filform form div{
-    /* border: 1px solid black; */
-    height: 100%;
-    width: 40%;
-    
-}
-.filform form div input{
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: 1px solid #9d9d9d;
-}
-.filform form div p{
-    color: red;
-    margin: 1%;
-}
-.filform form button{
-    height: 100%;
-    width: 15%;
+.filajout { width: 100%; }
+.filajout h3 { margin-bottom: 10px; }
+.filform { width: 100%; background-color: white; padding: 20px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+.filform form { width: 100%; display: flex; gap: 2%; flex-wrap: wrap; }
+.filform form div { height: 100%; width: 40%; }
+.filform form div input { width: 100%; padding: 10px 20px; border-radius: 50px; border: 1px solid #9d9d9d; }
+.filform form div p { color: red; margin: 1%; }
+.filform form button {
+    height: 100%; width: 15%; min-width: 120px;
     background: linear-gradient(to bottom, #4facfe, #007bff);
-    box-shadow: 0 4px 0 #0056b3;
-    transition: 0.1s;
-    padding: 10px 20px;
-    border-radius: 50px;
-    color: #fff;
-    border: none;
+    box-shadow: 0 4px 0 #0056b3; transition: 0.1s;
+    padding: 10px 20px; border-radius: 50px; color: #fff; border: none;
 }
+.filform form button:active { box-shadow: 0 2px 0 #0056b3; transform: translateY(2px); }
+.filist { width: 100%; }
+.filist h3 { margin-bottom: 10px; margin-top: 15px; }
+.filcard { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 
-.filform form button:active {
-    box-shadow: 0 2px 0 #0056b3;
-    transform: translateY(2px);
-}
-.filist{
-    width: 100%;
-    /* border: 1px solid black; */
-}
-.filist h3{
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
-.filcard{
-    /* border: 1px solid black; */
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-/* .fil-card{
-    border: 1px solid black;
-    height: 100px;
-    width: 26%;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-} */
 .fil-card {
-    background: rgb(255, 255, 255);
-    border-radius: 12px;
-    padding: 15px;
-    border: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter: blur(10px);
+    background: rgb(255, 255, 255); border-radius: 12px; padding: 15px;
+    border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-    transition: transform .25s, box-shadow .25s;
-    position: relative;
-    /* 3 par ligne – pas de débordement */
-    flex: 0 0 calc(33.333% - 20px);
-    box-sizing: border-box;
-    /* text-align: center; */
-    
+    transition: transform .25s, box-shadow .25s; position: relative;
+    flex: 0 0 calc(33.333% - 20px); box-sizing: border-box;
 }
-.fil-elem{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 100%;
-}
-.filicone{
-    height: 100%;
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 400%;
-    color: rgba(248, 0, 0, 0.347);
-}
-.fil-info{
-    padding: 10px;
-}
-.detail-fil{
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    /* padding: 5px; */
-    margin-top: 15px;
-    gap: 15px;
-
-}
-.filem{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.filem span{
-    width: 100%;
-}
-.det-fil{
+.fil-elem { width: 100%; display: flex; justify-content: space-around; align-items: center; font-size: 100%; }
+.filicone { height: 100%; width: 20%; display: flex; justify-content: center; align-items: center; font-size: 400%; color: rgba(248, 0, 0, 0.347); }
+.fil-info { padding: 10px; }
+.detail-fil { display: flex; margin-top: 15px; gap: 15px; }
+.filem { display: flex; flex-direction: column; gap: 15px; }
+.filem span { width: 100%; }
+.det-fil {
     background: linear-gradient(to bottom, #4facfe, #007bff);
-    box-shadow: 0 4px 0 #0056b3;
-    transition: 0.15s ease;
-    border-radius: 50%;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+    box-shadow: 0 4px 0 #0056b3; transition: 0.15s ease;
+    border-radius: 50%; height: 35px; width: 35px;
+    display: flex; align-items: center; justify-content: center; text-decoration: none;
 }
-.det-fil:hover {
-    background: linear-gradient(to bottom, #6ec0ff, #1b8cff);
-}
-.rem-fil{
+.det-fil:hover { background: linear-gradient(to bottom, #6ec0ff, #1b8cff); }
+.rem-fil {
     background: linear-gradient(to bottom, #ff7f7f, #dc3545);
-    box-shadow: 0 4px 0 #a71d2a;
-    transition: 0.15s ease;
-    border-radius: 50px;
-    height: 35px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 0 #a71d2a; transition: 0.15s ease;
+    border-radius: 50px; height: 35px; width: 100%;
+    display: flex; align-items: center; justify-content: center;
 }
-.rem-fil:hover {
-    background: linear-gradient(to bottom, #ff9a9a, #e04151);
-}
-.rem-fil:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-}
-.det-fil:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-}
-.det-fil i{
-    color: white;
-}
-.rem-fil i{
-    color: white;
+.rem-fil:hover { background: linear-gradient(to bottom, #ff9a9a, #e04151); }
+.rem-fil:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+.det-fil:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+.det-fil i { color: white; }
+.rem-fil i { color: white; }
+
+.nivicone { height: 100%; width: 20%; display: flex; justify-content: center; align-items: center; font-size: 400%; color: rgba(255, 191, 0, 0.347); }
+
+
+/* =====================================================================
+   RESPONSIVE — TABLETTE (≤ 1024px)
+   ===================================================================== */
+@media (max-width: 1024px) {
+
+    /* Sidebar réduite */
+    .sidebar { width: 70px; }
+    .sidebar ul li a span { display: none; }
+    .sidebar ul li a { justify-content: center; }
+    .sidebar ul li a i { font-size: 20px; margin: 0; }
+    .sidebar-header h2 { display: none; }
+    .sidebar-header div { width: 70%; }
+
+    /* Header + Content décalés */
+    .header { left: 70px; width: calc(100% - 70px); }
+    .content,
+    .add-container,
+    .etu-details-wrapper,
+    .classe-content,
+    .cla-details-wrapper,
+    .fil-content { margin-left: 70px; }
+
+    /* Désactiver toggle sur tablette */
+    #toggle:checked ~ .sidebar { width: 220px; }
+    #toggle:checked ~ .sidebar ul li a span { display: inline; }
+    #toggle:checked ~ .sidebar ul li a { justify-content: flex-start; }
+    #toggle:checked ~ .header { left: 220px; width: calc(100% - 220px); }
+    #toggle:checked ~ .content,
+    #toggle:checked ~ .add-container,
+    #toggle:checked ~ .etu-details-wrapper,
+    #toggle:checked ~ .classe-content,
+    #toggle:checked ~ .cla-details-wrapper,
+    #toggle:checked ~ .fil-content { margin-left: 220px; }
+
+    /* Dashboard cards : 2 par ligne */
+    .l-card { width: 47%; height: auto; min-height: 140px; padding: 20px; }
+
+    /* Formulaire : pleine largeur */
+    .form-card { width: 80%; }
+
+    /* Cards : 2 par ligne */
+    .student-card,
+    .classe-card,
+    .fil-card { flex: 0 0 calc(50% - 20px); }
+
+    /* Filtre étudiants */
+    .etu-fil form { width: 55%; }
+    .etu-fil a { width: 30%; }
+
+    /* Filtres classes */
+    .classe-filter-form { width: 45%; }
+    .classe-filters a { width: 45%; }
+
+    /* Détail étudiant / classe */
+    .etu-details-card,
+    .cla-detail-card { width: 92%; padding: 25px; }
+    .etu-details-info { grid-template-columns: 1fr; gap: 20px; }
+
+    /* Switch btn centré */
+    .switch-btn,
+    .classe-switch-btn { margin-left: 30%; }
+
+    /* Filière form */
+    .filform form div { width: 60%; }
+    .filform form button { width: 25%; }
+
+    /* Table scrollable */
+    .table-view,
+    .classe-table { display: block; overflow-x: auto; white-space: nowrap; }
+    #toggleView:checked ~ .table-view { display: block; }
+    #classeToggleView:checked ~ .classe-table { display: block; }
 }
 
 
+/* =====================================================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ===================================================================== */
+@media (max-width: 768px) {
+
+    /* Sidebar cachée par défaut */
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+        z-index: 100;
+    }
+    .sidebar ul li a span { display: none; }
+    .sidebar-header h2 { display: none; }
+
+    /* Image du sidebar-header bien dimensionnée (état fermé) */
+    .sidebar-header {
+        height: 80px;
+    }
+    .sidebar-header div {
+        width: 50%;
+        height: 70%;
+    }
+    .sidebar-header div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    /* Header : pleine largeur, burger bien visible */
+    .header {
+        left: 0;
+        width: 100%;
+        padding-left: 10px;
+        z-index: 99; /* sous le sidebar ouvert */
+    }
+
+    /* Burger toujours visible en premier plan */
+    .menu-btn {
+        font-size: 26px;
+        flex-shrink: 0;
+        z-index: 101;
+        position: relative;
+    }
+
+    .content,
+    .add-container,
+    .etu-details-wrapper,
+    .classe-content,
+    .cla-details-wrapper,
+    .fil-content { margin-left: 0; padding: 15px; }
+
+    /* Toggle ouvre le sidebar en overlay */
+    #toggle:checked ~ .sidebar {
+        width: 220px;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+    }
+    #toggle:checked ~ .sidebar ul li a span { display: inline; }
+    #toggle:checked ~ .sidebar ul li a { justify-content: flex-start; }
+
+    /* Image sidebar bien proportionnée quand ouvert */
+    #toggle:checked ~ .sidebar .sidebar-header {
+        height: 100px;
+    }
+    #toggle:checked ~ .sidebar .sidebar-header h2 {
+        display: block;
+        opacity: 1;
+        font-size: 14px;
+    }
+    #toggle:checked ~ .sidebar .sidebar-header div {
+        width: 35%;
+        height: 60%;
+    }
+    #toggle:checked ~ .sidebar .sidebar-header div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        padding-top: 0;
+    }
+
+    /* Header reste en place (sidebar en overlay) */
+    #toggle:checked ~ .header { left: 0; width: 100%; }
+    #toggle:checked ~ .content,
+    #toggle:checked ~ .add-container,
+    #toggle:checked ~ .etu-details-wrapper,
+    #toggle:checked ~ .classe-content,
+    #toggle:checked ~ .cla-details-wrapper,
+    #toggle:checked ~ .fil-content { margin-left: 0; }
+
+    /* Header : titre réduit */
+    .header-search h2 { font-size: 13px; }
+    .profil { width: 50%; }
+    .profil button { width: 35px; height: 35px; }
+
+    /* Dashboard cards : 1 colonne */
+    .card { flex-direction: column; gap: 15px; }
+    .l-card { width: 100%; height: auto; min-height: 120px; }
+
+    /* Formulaire pleine largeur */
+    .form-card { width: 95%; margin: 10px auto; padding: 20px; }
+    .btns { margin-right: 0; justify-content: center; }
+
+    /* Cards : 1 par ligne */
+    .student-card,
+    .classe-card,
+    .fil-card { flex: 0 0 100%; }
+
+    /* Filtres étudiants : colonne */
+    .etu-fil { flex-direction: column; gap: 10px; }
+    .etu-fil form { width: 100%; height: auto; flex-wrap: wrap; gap: 8px; }
+    .etu-fil form div { width: 100%; height: 45px; }
+    .etu-fil form button { width: 100%; height: 45px; border-radius: 10px; }
+    .etu-fil a { width: 100%; height: 45px; }
+    .add-etu { height: 100%; border-radius: 10px; }
+
+    /* Filtres classes : colonne */
+    .classe-filters { flex-direction: column; }
+    .classe-filter-form { width: 100%; height: auto; flex-direction: column; gap: 8px; }
+    .classe-filter-form div { width: 100%; height: 45px; }
+    .classe-filter-form input,
+    .classe-filter-form select { height: 45px; }
+    .classe-filter-form button { width: 100%; height: 45px; border-radius: 10px; }
+    .classe-filters a { width: 100%; height: 45px; text-align: center; }
+    .add-classe-btn { width: 100%; height: 45px; border-radius: 10px; }
+
+    /* Switch centré */
+    .switch-btn,
+    .classe-switch-btn,
+    .switchetu-btn { margin-left: 0; display: block; text-align: center; width: 100%; border-radius: 10px; }
+
+    /* Tables scrollables */
+    .table-view,
+    .classe-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+    #toggleView:checked ~ .table-view { display: block; }
+    #classeToggleView:checked ~ .classe-table { display: block; }
+
+    /* Détail étudiant / classe */
+    .etu-details-wrapper,
+    .cla-details-wrapper { padding: 10px; }
+    .banner, .banner-classe { height: 120px; }
+    .etu-details-card,
+    .cla-detail-card { width: 97%; margin-top: -50px; padding: 20px; }
+    .etu-details-name { font-size: 20px; }
+    .etu-details-info { grid-template-columns: 1fr; gap: 15px; }
+    .etu-details-img { width: 90px; height: 90px; }
+    .etu-details-actions { flex-direction: column; align-items: center; gap: 10px; }
+    .btn { width: 100%; text-align: center; }
+    .cls-assoc { padding: 20px; }
+    .line { flex-direction: column; gap: 4px; font-size: 15px; }
+
+    /* Filière / Niveau */
+    .filform form { flex-direction: column; gap: 10px; }
+    .filform form div { width: 100%; }
+    .filform form button { width: 100%; min-width: unset; border-radius: 10px; height: 45px; }
+
+    /* Popup success */
+    .popup-success { right: 10px; left: 10px; right: 10px; font-size: 14px; }
+}
 
 
-.nivicone{
-    height: 100%;
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 400%;
-    color: rgba(255, 191, 0, 0.347);
+/* =====================================================================
+   RESPONSIVE — TRÈS PETIT MOBILE (≤ 480px)
+   ===================================================================== */
+@media (max-width: 480px) {
+    .header-search h2 { font-size: 11px; }
+    .etu-details-name { font-size: 17px; }
+    .etu-details-group h3 { font-size: 16px; }
+    .etu-details-group p { font-size: 14px; }
+    .l-card h1 { font-size: 24px; }
+    .form-card { padding: 15px; }
+    .btns { flex-direction: column; }
+    .btns .cancel, .btns .save { width: 100%; text-align: center; }
+    .fil-card { flex-direction: column; }
+    .filicone, .nivicone { font-size: 250%; width: 15%; }
 }
